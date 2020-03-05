@@ -1,0 +1,38 @@
+---
+layout: default
+title: "Archives"
+---
+
+
+<p class="page-title">
+	<span class="btn btn-sm btn-round btn-highlight disabled">
+		<span class="glyphicon glyphicon-folder-close"></span> &nbsp;
+		<span class="chn">歸檔</span>
+		<span class="eng">ARCHIVES</span>
+	</span>
+</p>
+
+
+<section>
+	{% for post in site.posts %}
+	{% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+	{% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+
+
+	{% if forloop.first %}
+	<p class="slim gray">{{ year }}</p>
+	<ul>
+		{% elsif year != nyear %}
+	</ul>
+</section>
+<section>
+	<p class="slim gray">{{ year }}</p>
+	<ul>
+		{% endif %}
+		<li>
+			<a href="{{site.baseurl}}{{post.url}}">{{ post.title }}</a>
+			<span class="gray slim pull-right">{{ post.date | date_to_string }}</span>
+		</li>
+		{% endfor %}
+	</ul>
+</section>

@@ -1,0 +1,85 @@
+---
+layout: default
+title: "Projects"
+---
+
+<p class="page-title">
+	<span class="btn btn-sm btn-round btn-highlight disabled">
+		<span class="glyphicon glyphicon-folder-open"></span> &nbsp;
+		<span class="chn">項目</span>
+		<span class="eng">PROJECTS</span>
+	</span>
+</p>
+
+
+
+{% for post in paginator.posts %}
+<section>
+	<h2 class="post-title">
+		{% if post.categories contains 'bookmarked' %}
+		<span class="glyphicon glyphicon-bookmark" style="color: #d9534f; font-size: 0.8em;"></span>
+		{% endif %}
+
+		<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+	</h2>
+
+	<p class="gray slim" style="margin-bottom: 2rem;">
+		<i data-feather="calendar"></i> {{ post.date | date_to_string }}
+		&nbsp;
+		<i data-feather="tag"></i>
+		{% include post_tags.html %}
+		<!--a href="{{ site.baseurl }}{{ post.url }}#disqus_thread"></a-->
+	</p>
+
+	{{ post.excerpt }}
+
+	<p style="margin-top: 2rem;">
+		<a class="btn btn-round btn-sm" href="{{ site.baseurl }}{{ post.url }}">
+			<span class="chn">繼續閱讀 &raquo;</span>
+			<span class="eng">READ MORE &raquo;</span>
+		</a>
+	</p>
+</section>
+{% endfor %}
+
+
+
+
+{% if paginator.total_pages > 1 %}
+<p class="page-nav">
+	{% if paginator.previous_page %}
+	<a class="btn btn-sm btn-round" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">
+		<span class="eng">PREV</span>
+		<span class="chn">上一頁</span>
+	</a>
+	{% else %}
+	<span class="btn btn-round btn-sm disabled">
+		<span class="eng">PREV</span>
+		<span class="chn">上一頁</span>
+	</span>
+	{% endif %}
+
+	{% for page in (1..paginator.total_pages) %}
+	{% if page == paginator.page %}
+	<span class="btn btn-round btn-sm btn-highlight disabled">{{ page }}</span>
+
+	{% elsif page == 1 %}
+	<a href="{{ site.baseurl }}/blog/">{{ page }}</a>
+	{% else %}
+	<a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+	{% endif %}
+	{% endfor %}
+
+	{% if paginator.next_page %}
+	<a class="btn btn-sm btn-round" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">
+		<span class="eng">NEXT</span>
+		<span class="chn">下一頁</span>
+	</a>
+	{% else %}
+	<span class="btn btn-round btn-sm disabled">
+		<span class="eng">NEXT</span>
+		<span class="chn">下一頁</span>
+	</span>
+	{% endif %}
+</p>
+{% endif %}

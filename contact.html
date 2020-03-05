@@ -1,0 +1,78 @@
+---
+layout: default
+title: "Contact"
+---
+
+<p class="page-title">
+	<span class="btn btn-sm btn-round btn-highlight disabled">
+		<span class="glyphicon glyphicon-envelope"></span> &nbsp;
+		<span class="chn">聯絡</span>
+		<span class="eng">CONTACT</span>
+	</span>
+</p>
+
+
+
+
+<section>
+	<ul class="nav nav-tabs small" style="margin-bottom: 2em; text-align: center;">
+		<li class="active">
+			<a href="#sites" data-toggle="tab" aria-expanded="false">
+				<i data-feather="message-circle" style="font-size: x-large;"></i><br>
+				<span class="chn">留言</span>
+				<span class="eng">Message</span>
+			</a>
+		</li>
+
+		<li>
+			<a href="#files" data-toggle="tab" aria-expanded="false">
+				<i data-feather="map-pin" style="font-size: x-large;"></i><br>
+				<span class="chn">地址</span>
+				<span class="eng">Address</span>
+			</a>
+		</li>
+	</ul>
+
+
+	<div id="myTabContent" class="tab-content">
+		<div class="tab-pane fade active in" id="sites">
+			<form role="form" action="https://getsimpleform.com/messages?form_api_token=7b02eae8a6a9060f4938829bcfc84a93" method="post" enctype="multipart/form-data">
+				<input type='hidden' name='redirect_to' value='https://lucaslionline.github.io/lucas/sent.html' />
+
+				<p>
+					<textarea name="Message" rows="5" class="form-control" placeholder="Message" required></textarea>
+				</p>
+
+				<div class="row">
+					<p class="col-sm-4">
+						<input type="text" name="Name" class="form-control" placeholder="Your Name" required>
+					</p>
+
+					<p class="col-sm-4">
+						<input type="email" name="Email" class="form-control" placeholder="Your Email" required>
+					</p>
+
+					<p class="col-sm-4">
+						<input type="file" name="Attachment" class="form-control">
+					</p>
+				</div>
+			</div>
+
+			<div class="tab-pane fade" id="files">
+				Studio
+			</div>
+		</div>
+	</section>
+
+	<p class="page-nav">
+		<button type="reset" class="btn btn-sm btn-round">
+			<span class="eng">Reset</span>
+			<span class="chn">清除</span>
+		</button>
+
+		<button type="submit" class="btn btn-sm btn-round pull-right">
+			<span class="eng">Send</span>
+			<span class="chn">發送</span>
+		</button>
+	</p>
+</form>

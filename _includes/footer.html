@@ -1,0 +1,86 @@
+<footer>
+	<div class="container">
+		<div class="no-link">
+			<div class="toggle-btn1 as-link btm-icon">
+				<span class="glyphicon glyphicon-off"></span>
+			</div><a class="btm-icon {% if page.url contains 'services' %}active{% endif %}" href="{{ site.baseurl }}/services.html">
+			<span class="glyphicon glyphicon-briefcase"></span>
+		</a><a class="btm-icon {% if page.url contains 'about' %}active{% endif %}" href="{{ site.baseurl }}/about.html">
+		<span class="glyphicon glyphicon-info-sign"></span>
+	</a><a class="btm-icon {% if page.url contains 'contact' %}active{% endif %}" href="{{ site.baseurl }}/contact.html">
+	<span class="glyphicon glyphicon-envelope"></span>
+</a>
+
+<div class="footer-right small">
+	&copy;
+	<span>
+		<script type="text/javascript">document.write(new Date().getFullYear());</script>
+	</span>
+	<span class="chn">盧卡斯工作室</span>
+	<span class="eng">LucaStudio</span>
+	&sdot;
+
+
+	<span class="glyphicon glyphicon-globe"></span>
+	<span class="eng"><a href="javascript:;" onclick="abc()">中文</a></span>
+	<span class="chn"><a href="javascript:;" onclick="abc()">ENG</a></span>
+</div>
+</div>
+</div>
+
+<div class="container">
+	<div class="start">
+		{% include start.html %}
+	</div>
+</div>
+</footer>
+
+
+
+
+<!-- feather icons -->
+<script>feather.replace()</script>
+
+
+
+<!-- images gallery -->
+<script src="{{ site.baseurl }}/assets/js/gallery.js"></script>
+<script src="{{ site.baseurl }}/assets/js/gallery.rotate.min.js"></script>
+<script type="text/javascript">
+$(function () {
+	$('[data-magnify]').Magnify({
+		Toolbar: [
+		'prev',
+		'next',
+		'rotateLeft',
+		'rotateRight',
+		'zoomIn',
+		'actualSize',
+		'zoomOut'
+		],
+		keyboard:true,
+		draggable:true,
+		movable:true,
+		modalSize:[800,600],
+		beforeOpen:function (obj,data) {
+			console.log('beforeOpen')
+		},
+		opened:function (obj,data) {
+			console.log('opened')
+		},
+		beforeClose:function (obj,data) {
+			console.log('beforeClose')
+		},
+		closed:function (obj,data) {
+			console.log('closed')
+		},
+		beforeChange:function (obj,data) {
+			console.log('beforeChange')
+		},
+		changed:function (obj,data) {
+			console.log('changed')
+		}
+	});
+
+})
+</script>

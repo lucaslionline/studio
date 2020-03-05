@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+
+<section style="margin-top: 7rem;">
+	<h2>{{ page.title }}</h2>
+	<p class="slim gray" style="margin-bottom: 4rem;">
+		<i data-feather="calendar"></i>
+		{{ page.date | date_to_string }}
+		&nbsp;
+		<i data-feather="tag"></i>
+		{% include post_tags.html %}
+	</p>
+
+	{{ content }}
+</section>
+
+
+<p class="page-nav">
+	{% include pages.html %}
+</p>

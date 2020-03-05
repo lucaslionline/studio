@@ -1,0 +1,64 @@
+<header>
+	<div class="container">
+		<nav>
+			<ul>
+				<a href="{{ site.baseurl }}/">
+					<li>
+						<img class="logo" src="{{ site.baseurl }}/assets/img/profile1.png">
+					</li>
+				</a>
+
+
+				<a class="{% if page.url contains 'blog' %}active{% endif %}" href="{{ site.baseurl }}/blog/">
+					<li>
+						<h4 class="nav-icon"><span class="glyphicon glyphicon-edit"></span></h4>
+						<span class="small chn">博客</span>
+						<span class="small eng">Blog</span>
+					</li>
+				</a>
+
+
+				<a class="{% if page.url contains 'about' %}active{% endif %}" href="{{ site.baseurl }}/about.html">
+					<li>
+						<h4 class="nav-icon"><span class="glyphicon glyphicon-user"></span></h4>
+						<span class="small chn">關於</span>
+						<span class="small eng">About</span>
+					</li>
+				</a>
+
+
+				<!--a class="{% if page.url contains 'store' %}active{% endif %}" href="{{ site.baseurl }}/store.html">
+					<li>
+						<h4 class="nav-icon"><span class="glyphicon glyphicon-shopping-cart"></span></h4>
+						<span class="small chn">商店</span>
+						<span class="small eng">Store</span>
+					</li>
+				</a-->
+
+
+				<a class="{% if page.url contains 'misc' %}active{% endif %}" href="{{ site.baseurl }}/misc.html">
+					<li>
+						<h4 class="nav-icon"><span class="glyphicon glyphicon-th-large"></span></h4>
+						<span class="small chn">作品</span>
+						<span class="small eng">Misc</span>
+					</li>
+				</a>
+
+
+
+
+
+				
+				<span class="pull-right laptop lan-laptop">
+					<span class="eng"><a href="javascript:;" class="btn btn-sm btn-round no-margin" onclick="chn()">中文</a></span>
+					<span class="chn"><a href="javascript:;" class="btn btn-sm btn-round no-margin" onclick="eng()">ENG</a></span>
+				</span>
+
+				<span class="pull-right mobile lan-mobile small">
+					<span class="eng"><a href="javascript:;" onclick="chn()">中文</a></span>
+					<span class="chn"><a href="javascript:;" onclick="eng()">ENG</a></span>
+				</span>
+			</ul>
+		</nav>
+	</div>
+</header>

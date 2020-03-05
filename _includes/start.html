@@ -1,0 +1,129 @@
+<div class="start-left">
+	<a href="{{ site.baseurl }}/">
+		<img class="logo" src="{{ site.baseurl }}/assets/img/profile1.png">
+	</a>
+
+	<div class="start-left-btm">
+		<a class="btm-icon {% if page.url contains 'blog' %}active{% endif %}" href="{{ site.baseurl }}/blog/">
+			<span class="glyphicon glyphicon-folder-open"></span>
+		</a>
+
+		<a class="btm-icon {% if page.url contains 'settings' %}active{% endif %}" href="{{ site.baseurl }}/settings.html">
+			<span class="glyphicon glyphicon-cog"></span>
+		</a>
+
+		<a class="btm-icon" href="{{ site.baseurl }}/">
+			<span class="glyphicon glyphicon-home"></span>
+		</a>
+	</div>
+</div>
+
+
+
+
+
+<div class="start-right">
+	<p>
+		<strong>
+			<span class="eng">
+				<script type="text/javascript">greetingEng();</script>
+			</span>
+			<span class="chn">
+				<script type="text/javascript">greetingChn();</script>
+			</span>
+		</strong>
+		<br>
+		<span class="gray small">
+			<script type="text/javascript">document.write(new Date().toLocaleString());</script>
+		</span>
+	</p>
+
+
+
+	<p>
+		<form method="get" action="https://www.google.com/search" target="_blank">
+			<input type="text" name="q" size="25" class="form-control" placeholder="Google" required>
+		</form>
+	</p>
+
+
+
+
+	<strong>
+		<span class="chn">關於</span>
+		<span class="eng">About</span>
+		<a href="{{ site.baseurl }}/about.html" class="pull-right">
+			<i data-feather="more-horizontal"></i>
+		</a>
+	</strong>
+	
+	<div class="cloth small">
+		<strong>盧卡斯工作室</strong>成立於2020年
+	</div>
+
+
+
+
+
+<strong>
+	<span class="chn">服務</span>
+	<span class="eng">Services</span>
+	<a href="{{ site.baseurl }}/services.html" class="pull-right">
+		<i data-feather="more-horizontal"></i>
+	</a>
+</strong>
+<div class="cloth">
+	<a href="{{ site.baseurl }}/services.html?design" class="cloth-icon">
+		<i data-feather="box" style="font-size: x-large;"></i><br>
+		<span class="chn">設計</span>
+		<span class="eng">Design</span>
+	</a><a href="{{ site.baseurl }}/services.html?development" class="cloth-icon">
+	<i data-feather="code" style="font-size: x-large;"></i><br>
+	<span class="chn">開發</span>
+	<div class="eng trim">Development</div>
+</a><a href="{{ site.baseurl }}/services.html?consultation" class="cloth-icon">
+	<i data-feather="info" style="font-size: x-large;"></i><br>
+	<span class="chn">諮詢</span>
+	<div class="eng trim">Consultation</div>
+</a>
+</div>
+
+
+
+
+
+
+
+
+<strong>
+	<span class="chn">項目</span>
+	<span class="eng">Projects</span>
+	<a href="{{ site.baseurl }}/blog/" class="pull-right">
+		<i data-feather="more-horizontal"></i>
+	</a>
+</strong>
+<div class="cloth">
+	<a href="{{ site.baseurl }}/archives.html" class="cloth-icon">
+		<i data-feather="archive" style="font-size: x-large;"></i><br>
+		<span class="chn">歸檔</span>
+		<span class="eng">Archives</span>
+	</a><a href="{{ site.baseurl }}/tags/" class="cloth-icon">
+	<i data-feather="tag" style="font-size: x-large;"></i><br>
+	<span class="chn">標籤</span>
+	<span class="eng">Tags</span>
+</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="center" style="margin-top: 2em;">
+	{% include social.html %}
+</div>
+</div>

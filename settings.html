@@ -1,0 +1,79 @@
+---
+layout: default
+title: "Settings"
+---
+
+
+<!--script language="JavaScript">
+var password = "";
+password = prompt('Password required:','');
+if (password != 'll') {
+alert("Incorrect password!");
+window.history.back(-1);
+}
+</script-->
+
+
+<p class="page-title">
+	<span class="btn btn-sm btn-round btn-highlight disabled">
+		<span class="glyphicon glyphicon-cog"></span> &nbsp;
+		<span class="chn">設置</span>
+		<span class="eng">SETTINGS</span>
+	</span>
+</p>
+
+
+<section>
+	<div class="row">
+		<div class="col-sm-4">
+			<input type="text" name="username" id="username" size="25" class="form-control" placeholder="Username" required>
+		</div>
+
+		<div class="col-sm-4">
+			<input type="password" name="password" id="password" size="25" class="form-control" placeholder="Password" required>
+		</div>
+
+		<div class="col-sm-4">
+			<button onclick="login()" class="btn btn-sm btn-round pull-right">
+				<span class="eng">Enter</span>
+				<span class="chn">進入</span>
+			</button>
+		</div>
+	</div>
+	<div id="txt" class="text-danger"></div>
+
+	<script type="text/javascript">
+	function login() {
+		if((document.getElementById("username").value=="lucaslionline") && (document.getElementById("password").value=="mbim111990")) {
+			txt.innerText="Welcome, admin!";
+			$("#admin").slideDown("normal");
+			return true;
+		} else {
+			txt.innerText="ID not recognized!";
+			return false;
+		}
+	}
+	</script>
+
+
+	<div id="admin" style="display: none;">
+		<hr>
+		<div class="row">
+			<div class="col-sm-3">
+				<a href="https://getsimpleform.com/messages?api_token=415a188ac67487bb04ee6f3981ec447a" target="_blank" class="col-icon">
+					<i data-feather="message-circle" style="font-size: x-large;"></i><br>
+					<span class="chn">信息</span>
+					<span class="eng">Message</span>
+				</a>
+			</div>
+
+			<div class="col-sm-3">
+				<a href="http://statcounter.com" target="_blank" class="col-icon">
+					<i data-feather="bar-chart-2" style="font-size: x-large;"></i><br>
+					<span class="chn">統計</span>
+					<span class="eng">Stats</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>

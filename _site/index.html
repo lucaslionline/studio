@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<title>LucaStudio | Home</title>
+	
+
+	<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-3.0.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/custom.css">
+	<link href='https://fonts.googleapis.com/css?family=Didact Gothic' rel='stylesheet'>
+	<link rel="stylesheet" href="/assets/css/mapbox-gl.css">
+	<link rel="stylesheet" href="/assets/css/gallery.css">
+
+
+	<script src="/assets/js/jquery-1.11.3.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
+	<script src="/assets/js/chart.js"></script>
+	<script src="/assets/js/feather.js"></script>
+	<script src="/assets/js/custom.js"></script>
+	<script src='/assets/js/mapbox-gl.js'></script>
+</head>
+
+<body>
+	<div class="front-page" id="cover-menu">
+		<center>
+			<a href="javascript:;" onclick="coverSwitch()">
+				<img class="img-thumbnail front-profile" width="150px" src="/assets/img/profile1.png">
+			</a>
+
+			<h3 class="ltr-sp">
+				<span class="eng">Luca<span class="theme">S</span>tudio</span>
+				<span class="chn">盧卡斯工作室</span>
+			</h3>
+			<p class="slim" id="divTyping">_</p>
+
+			<p style="margin: 2em 0;">
+				<a class="btn btn-sm btn-round" href="/services.html">
+					<span class="glyphicon glyphicon-briefcase"></span> &nbsp;
+					<span class="eng">Services</span>
+					<span class="chn">服務</span>
+				</a>
+				&nbsp;
+				<a class="btn btn-sm btn-round" href="/about.html">
+					<span class="glyphicon glyphicon-info-sign"></span> &nbsp;
+					<span class="eng">About</span>
+					<span class="chn">關於</span>
+				</a>
+				&nbsp;
+				<a class="btn btn-round btn-sm" href="/contact.html">
+					<span class="glyphicon glyphicon-envelope"></span> &nbsp;
+					<span class="eng">Contact</span>
+					<span class="chn">聯絡</span>
+				</a>
+			</p>
+
+			<div style="position: absolute; bottom: 0; width: 100%; line-height: 50px; height: 50px; border-top: 1px solid #ddd;">
+				<p class="small gray no-link">
+					&copy;
+					<span><script type="text/javascript">document.write(new Date().getFullYear());</script></span>
+					<span class="chn">盧卡斯工作室</span>
+					<span class="eng">LucaStudio</span>
+					&sdot;
+
+					<span class="glyphicon glyphicon-stats"></span>
+					&sdot;
+
+					<span class="glyphicon glyphicon-globe"></span>
+					<span class="eng"><a href="javascript:;" onclick="abc()">中文</a></span>
+					<span class="chn"><a href="javascript:;" onclick="abc()">ENG</a></span>
+				</p>
+			</div>
+		</center>
+	</div>
+
+
+
+	<div class="front-page" id="cover-widget">
+		<a href="javascript:;" onclick="coverSwitch()">
+			<span class="cover-close"><i data-feather="x-square"></i></span>
+		</a>
+
+		<div class="col-sm-4 center">
+			<div style="margin: -1em 0;">
+				<canvas width='200' height='200' id='canvas'><canvas>
+
+<script type="text/javascript" src='/assets/js/requestNextAnimationFrame.js'></script>
+
+<script type="text/javascript">
+var Sprite=function(name,painter,behaviors){
+	if(name!==undefined) this.name=name;
+	if(painter!==undefined) this.painter=painter;
+	
+	this.top=0;
+	this.left=0;
+	this.width=0;
+	this.height=0;
+	this.velocityX=0;
+	this.velocityY=0;
+	this.visible=true;
+	this.animating=false;
+	this.behaviors=behaviors||[];
+	
+	return this;
+};
+
+Sprite.prototype={
+	paint:function(context){
+		if(this.painter!==undefined&&this.value){
+			this.painter.paint(this,context);
+		}
+	},
+	update:function(context,time){
+		for(var i=0;i<this.behaviors.length;++i){
+			this.behaviors[i].execute(this,context,time);
+		}
+	}
+};
+
+var canvas=document.getElementById('canvas'),
+	context=canvas.getContext('2d'),
+	
+	clock_radius=canvas.width/2-35,
+	hour_hand=55,
+	ball=new Sprite('ball',ballPainter),
+	ballPainter={
+		paint:function(sprite,context){
+			var x=sprite.left+sprite.width/2,
+				y=sprite.top+sprite.height/2,
+				radius=sprite.width/2,
+				width=sprite.width,
+				height=sprite.height;
+			context.save();
+			context.beginPath();
+			context.arc(x,y,radius,0,Math.PI*2,false);
+			context.clip();
+			
+			context.shadowColor='rgb(0,0,0)';
+			context.shadowOffsetX=-4;
+			context.shadowOffsetY=-4;
+			context.shadowBlur=8;
+			
+			context.lineWidth=2;
+			context.strokeStyle='rgb(255,255,255)';
+			context.fillStyle='rgba(0,0,0,0.1)';
+			context.fill();
+			context.stroke();
+			context.restore();
+		}
+	};
+	
+	
+	function drawGrid(color,stepx,stepy){
+		/*
+		context.strokeStyle=color;
+		context.lineWidth=0.5;
+	
+		for(var i=stepx+0.5;i<context.canvas.width;i+=stepx){
+		context.beginPath();
+		context.moveTo(i,0);
+		context.lineTo(i,context.canvas.height);
+		context.stroke();
+		
+		}
+		for(var i=stepx+0.5;i<context.canvas.height;i+=stepy){
+		context.beginPath();
+		context.moveTo(0,i);
+		context.lineTo(context.canvas.width,i);
+		context.stroke();
+		
+		}
+		*/
+	}
+	
+	function drawHand(loc,isHour){
+		var angle=(Math.PI*2)*(loc/60)-Math.PI/2,
+		handRadius=isHour?clock_radius-hour_hand:clock_radius,
+		
+		lineEnd={
+			x:canvas.width/2+Math.cos(angle)*(handRadius-ball.width/2),
+			y:canvas.height/2+Math.sin(angle)*(handRadius-ball.width/2)
+		};
+		context.beginPath();
+		//context.strokeStyle='rgba(0,0,0,0.5)';
+		context.lineWidth=2;
+		context.moveTo(canvas.width/2,canvas.height/2);
+		context.lineTo(lineEnd.x,lineEnd.y);
+		context.stroke();
+		
+		ball.left=canvas.width/2+Math.cos(angle)*handRadius-ball.width/2;
+		ball.top=canvas.height/2+Math.sin(angle)*handRadius-ball.width/2;
+		
+		ballPainter.paint(ball,context);
+		
+	}
+	
+	function  drawClock(){
+		drawClockFace();
+		drawHands();
+	}
+	
+	function drawHands(){
+		var date=new Date(),
+			hour=date.getHours();
+			
+		ball.width=10;
+		ball.height=10;
+		drawHand(date.getSeconds(),false);
+		
+		ball.width=15;
+		ball.height=15;
+		drawHand(date.getMinutes(),false);
+		
+		hour=hour>12?hour-12:hour;
+		ball.width=20;
+		ball.height=20;
+		drawHand(hour*5+(date.getMinutes()*5/60));
+		
+		ball.width=5;
+		ball.height=5;
+		ball.left=canvas.width/2-ball.width/2;
+		ball.top=canvas.height/2-ball.height/2;
+		ballPainter.paint(ball,context);
+	}
+	
+	function drawClockFace(){
+		context.beginPath();
+		context.arc(canvas.width/2,canvas.height/2,clock_radius,0,Math.PI*2,false);
+		context.save();
+		context.strokeStyle='rgba(255,255,255,0.5)';
+		context.stroke();
+		context.restore();
+	}
+	
+	function animate(){
+		context.clearRect(0,0,canvas.width,canvas.height);
+		drawGrid('lightgray',10,10);
+		drawClock();
+		window.requestNextAnimationFrame(animate);
+	}
+	
+	context.lineWidth=0.5;
+	context.strokeStyle='rgba(255,255,255,0.8)';
+	context.shadowStyle='rgba(0,0,0,0.5)';
+	context.shadowOffsetX=2;
+	context.shadowOffsetY=2;
+	context.shadowBlur=4;
+	context.stroke();
+	
+	window.requestNextAnimationFrame(animate);
+	drawGrid('lightgray',10,10);
+</script>
+			</div>
+
+			<div class="text-uppercase widget-date ltr-sp">
+				<span>
+					<script type="text/javascript">
+					var day = new Date().getDay();
+					var week;
+					var arr_week = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+					week = arr_week[day];
+					document.write(week);
+					</script>
+				</span><br>
+				<span class="slim" style="font-size: 300%;">
+					<script type="text/javascript">
+					document.write(new Date().getDate());
+					</script>
+				</span><br>
+				<span class="slim">
+					<script type="text/javascript">
+					var month_id = new Date().getMonth();
+					var arr_month = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+					var month = arr_month[month_id];
+					var year = new Date().getFullYear();
+					document.write(month + " " + year);
+					</script>
+				</span>
+			</div>
+
+			<div>
+				<strong>
+					<span class="eng">
+						<script type="text/javascript">greetingEng();</script>
+					</span>
+					<span class="chn">
+						<script type="text/javascript">greetingChn();</script>
+					</span>
+				</strong>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+<script>
+var str = 'Learning to be a giant...';
+var i = 0;
+function typing() {
+	var divTyping = document.getElementById('divTyping');
+	if (i <= str.length) {
+		divTyping.innerHTML = str.slice(0, i++) + '_';
+		setTimeout('typing()', 200);
+	} else {
+	divTyping.innerHTML = str;//结束打字,移除 _ 光标
+}
+}
+typing();
+</script>
+
+
+<script>feather.replace()</script>

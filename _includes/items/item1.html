@@ -1,0 +1,32 @@
+<!--====================== item 1 ========================-->
+<li>
+	<a href="javascript:void(0)" data-magnify="item1" data-group="i1" data-src="{{ site.baseurl }}/assets/img/portfolio/postcards/postcards.jpg" data-caption="Postcards">
+		<div class="picThumb" style="background: url({{ site.baseurl }}/assets/img/portfolio/postcards/postcards.jpg) center center; background-size: cover;"></div>
+	</a>
+
+	<h5>
+		<span class="chn">明信片</span>
+		<span class="eng">Postcards</span>
+		<span class="pull-right text-danger">
+			<span class="chn">¥5/張</span>
+			<span class="eng">$5/pcs.</span>
+		</span>
+	</h5>
+	
+	<p>
+		<small>150 mm * 100 mm</small>
+		<a href="{{ site.baseurl }}/cart/postcard.html" class="btn btn-sm btn-round x-small pull-right">
+			<span class="glyphicon glyphicon-shopping-cart"></span>
+			<span class="chn">購買</span>
+			<span class="eng">Buy</span>
+		</a>
+	</p>
+</li>
+
+{% for moment in site.data.moments %}
+<li class="hide">
+	<a href="javascript:void(0)" data-magnify="item1" data-group="i1" data-src="{{ site.baseurl }}/assets/img/portfolio/postcards/{{ moment.src }}.jpg" data-caption="{{ moment.txt }}">
+		<div class="picThumb" style="background: url({{ site.baseurl }}/assets/img/portfolio/postcards/{{ moment.src }}.jpg) center center; background-size: cover;"></div>
+	</a>
+</li>
+{% endfor %}

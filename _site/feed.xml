@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-05T16:29:05+08:00</updated><id>http://localhost:4000/</id><title type="html">LucaStudio</title><entry><title type="html">中國國際太陽能十項全能競賽官方網站</title><link href="http://localhost:4000/development/2020/01/29/ecs-wordpress.html" rel="alternate" type="text/html" title="中國國際太陽能十項全能競賽官方網站" /><published>2020-01-29T00:00:00+08:00</published><updated>2020-01-29T00:00:00+08:00</updated><id>http://localhost:4000/development/2020/01/29/ecs-wordpress</id><content type="html" xml:base="http://localhost:4000/development/2020/01/29/ecs-wordpress.html">&lt;h4 id=&quot;阿里云ecs&quot;&gt;阿里云ECS&lt;/h4&gt;
+
+&lt;h5 id=&quot;1-服务器购买&quot;&gt;1. 服务器购买&lt;sup id=&quot;fnref:ecs&quot;&gt;&lt;a href=&quot;#fn:ecs&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/h5&gt;
+
+&lt;p&gt;登录阿里云&lt;a href=&quot;https://www.aliyun.com&quot;&gt;官网&lt;/a&gt;，在“弹性计算”下选择云服务器ECS。阿里云对于不同的账号类型（个人或企业）会有不同的优惠活动，按需选择即可，初级用户可参考以下配置：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CPU		2核
+内存		4G
+操作系统		CentOS 8.0 64位
+高效云盘		50 GB
+固定带宽		3 Mbps
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;!-- more --&gt;
+&lt;h5 id=&quot;2-域名注册及备案&quot;&gt;2. 域名注册及备案&lt;/h5&gt;
+
+&lt;p&gt;阿里云官网“域名与网站”下选择域名注册，或者直接登录&lt;a href=&quot;https://wanwang.aliyun.com&quot;&gt;万网&lt;/a&gt;进行域名购买，购买完域名之后建议去实名认证和备案。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;如果想通过域名访问阿里云的服务器，那域名是必须备案的，无论是个人网站还是企业网站，可通过阿里云的备案系统进行备案操作，一般备案审核需要二十天左右。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&quot;3-web环境配置&quot;&gt;3. Web环境配置&lt;sup id=&quot;fnref:web&quot;&gt;&lt;a href=&quot;#fn:web&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/h5&gt;
+
+&lt;p&gt;首先安装好可远程访问服务器的终端模拟软件，Windows系统可使用&lt;a href=&quot;https://www.netsarang.com/en/xshell/&quot;&gt;Xshell&lt;/a&gt;和&lt;a href=&quot;https://www.netsarang.com/en/xftp/&quot;&gt;Xftp&lt;/a&gt;，可在其&lt;a href=&quot;https://www.netsarang.com/en/free-for-home-school/&quot;&gt;官网&lt;/a&gt;下载免费版，Mac系统可使用&lt;a href=&quot;https://www.termius.com&quot;&gt;Termius&lt;/a&gt;。设置好阿里云服务器的用户名和密码，远程连接服务器。&lt;/p&gt;
+
+&lt;p&gt;接下来采用LNMP一键安装包来配置网站所需要的Nginx, MySQL, PHP环境，可去&lt;a href=&quot;https://lnmp.org&quot;&gt;官网&lt;/a&gt;下载最新版，或在Xshell/Termius中通过&lt;code class=&quot;highlighter-rouge&quot;&gt;wget&lt;/code&gt;下载，下面以LNMP1.6版为例:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@***]# wget http://soft.vpser.net/lnmp/lnmp1.6.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;解压：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@*** ~]# tar -zxvf lnmp1.6.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;进入lnmp目录：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@*** ~]# cd lnmp1.6
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;安装：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@*** ~]# ./install.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;接下来出现安装界面，按照提示选择所需的MySQL版本，设置密码（默认密码为root），选择所需的PHP版本等，基本上可以一路回车，按默认选项安装即可，安装过程大概需要半小时。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;此安装过程安装完成便也启动了Ngnix, MySQL, PHP-FPM，并加入了开机启动项，即使重启服务器，也不需要再单独手动开启相关的服务了。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;此时在浏览器中输入ip地址&lt;code class=&quot;highlighter-rouge&quot;&gt;http://ip&lt;/code&gt;（例如&lt;code class=&quot;highlighter-rouge&quot;&gt;http://60.205.225.135&lt;/code&gt;）便可以访问了。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;wordpress安装&quot;&gt;WordPress安装&lt;/h4&gt;
+
+&lt;h5 id=&quot;1-下载wordpress&quot;&gt;1. 下载WordPress&lt;/h5&gt;
+
+&lt;p&gt;可以去WordPress官网（&lt;a href=&quot;https://wordpress.org&quot;&gt;英文&lt;/a&gt;、&lt;a href=&quot;https://cn.wordpress.org&quot;&gt;中文&lt;/a&gt;）下载，也可通过&lt;code class=&quot;highlighter-rouge&quot;&gt;wget&lt;/code&gt;直接下载。&lt;/p&gt;
+
+&lt;p&gt;进入根目录上一级目录：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@*** ~]# cd /home/wwwroot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;将default文件夹重命名为old：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@*** wwwroot]# mv default old
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;下载最新版WordPress安装包：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@*** wwwroot]# wget https://wordpress.org/latest.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;解压WordPress安装包：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@*** wwwroot]# tar -zxvf latest.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;将wordpress文件夹重命名为default：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@*** wwwroot]# mv wordpress default
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;2-目录授权&quot;&gt;2. 目录授权&lt;/h5&gt;
+
+&lt;p&gt;目录以及目录下的文件授权：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@*** wwwroot]# chown -R 755 /home/wwwroot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;将目录的所有者分给www组下的www用户：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@*** wwwroot]# chown -R www:www /home/wwwroot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;3-创建数据库&quot;&gt;3. 创建数据库&lt;/h5&gt;
+
+&lt;p&gt;返回根目录：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@*** wwwroot]# cd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;登录数据库：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@*** ~]# mysql -u root -p
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;输入密码，默认的话就是root，否则就是自己之前设置的那个。然后创建数据库，命名为wordpress：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql&amp;gt; create database wordpress;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;查看一下数据库是否创建成功：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql&amp;gt; show databases;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;退出：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql&amp;gt; \q;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;4-配置wordpress&quot;&gt;4. 配置WordPress&lt;/h5&gt;
+
+&lt;p&gt;这时候可以通过浏览器输入ip地址来访问网站：&lt;code class=&quot;highlighter-rouge&quot;&gt;http://ip&lt;/code&gt;（例如&lt;code class=&quot;highlighter-rouge&quot;&gt;http://60.205.225.135&lt;/code&gt;），浏览器将自动跳转到&lt;code class=&quot;highlighter-rouge&quot;&gt;http://60.205.225.135/wp-admin/setup-config.php&lt;/code&gt;，这就是WordPress的配置页面了。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;如果遇到Nginx 502 Bad Gateway错误，这是php服务进程出了问题，可尝试重启php服务来解决，重启代码如下：&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/etc/init.d/php-fpm restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;双语网站&quot;&gt;双语网站&lt;/h4&gt;
+
+&lt;h5 id=&quot;1-主站点&quot;&gt;1. 主站点&lt;sup id=&quot;fnref:bil&quot;&gt;&lt;a href=&quot;#fn:bil&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/h5&gt;
+
+&lt;p&gt;接上一步完成主站点的配置（假设主站点为英文）：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Database Name	wordpress (上一步中创建的数据库名)
+Username	root (数据库用户名，默认值root)
+Password	**** (数据库密码，默认值root)
+Database Host	localhost (数据库主机，默认值localhost)
+Table Prefix	wp_ (表前缀必须与二级站点区分开)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;填写完成后点击&lt;code class=&quot;highlighter-rouge&quot;&gt;Submit&lt;/code&gt;，然后&lt;code class=&quot;highlighter-rouge&quot;&gt;Run the Install&lt;/code&gt;，进行管理员设置：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Site Title 	站点名称
+Username	管理员用户名，默认值admin
+Password	管理员登录密码，自己设置
+Your Email	管理员邮箱
+Serch Engine Visibility	是否禁止搜索引擎检索此网站，默认不勾选
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;点击&lt;code class=&quot;highlighter-rouge&quot;&gt;Install WordPress&lt;/code&gt;开始安装，安装完成后即可使用管理员用户名和密码登录管理后台。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;通过浏览器访问&lt;code class=&quot;highlighter-rouge&quot;&gt;http://ip/wp-admin&lt;/code&gt;进入管理员登录页面。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&quot;2-二级站点&quot;&gt;2. 二级站点&lt;/h5&gt;
+
+&lt;p&gt;以子目录的方式建立二级站点（假设二级站点为中文），首先用Xftp工具进入WordPress的安装目录&lt;code class=&quot;highlighter-rouge&quot;&gt;/home/wwwroot/default&lt;/code&gt;，WordPress文件一般包括wp-admin, wp-content, wp-includes等。在此&lt;code class=&quot;highlighter-rouge&quot;&gt;default&lt;/code&gt;文件夹下创建子目录文件夹并命名为&lt;code class=&quot;highlighter-rouge&quot;&gt;cn&lt;/code&gt;（网站域名将显示为&lt;code class=&quot;highlighter-rouge&quot;&gt;http://www.xxx.com/cn&lt;/code&gt;，也可根据实际情况命名为en, jp, fr等其它语言的简写或其它任意名称）。&lt;/p&gt;
+
+&lt;p&gt;接下来将WordPress安装文件（wp-admin, wp-content, wp-includes等）复制到新建的子目录&lt;code class=&quot;highlighter-rouge&quot;&gt;cn&lt;/code&gt;下。建议去中文官网下载中文安装文件，省去以后安装语言包，如果是直接复制主站点的WordPress文件，注意不要复制wp-config.php这个文件。&lt;/p&gt;
+
+&lt;p&gt;完成以上步骤，即可在浏览器中打开网站&lt;code class=&quot;highlighter-rouge&quot;&gt;http://ip/cn&lt;/code&gt;开始配置WordPress。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;数据库名		wordpress (与主站点一致)
+用户名		root (与主站点一致)
+密码		**** (与主站点一致)
+数据库主机	localhost (与主站点一致)
+表前缀		wpcn_ (务必与主站点区分开)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;数据库名、用户名、密码等和主站点填写内容一致，但表前缀一定要和其他站点区分开，如果主站点默认是wp_，那么子站点可以填wp1_ 、wpcn_等等。接下来就可按照之前的安装步骤完成二级站点的设置了。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;通过浏览器访问&lt;code class=&quot;highlighter-rouge&quot;&gt;http://ip/cn/wp-admin&lt;/code&gt;进入管理员登录页面。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:ecs&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/qianguyihao/p/4965163.html&quot;&gt;“阿里云+wordpress搭建个人博客网站”&lt;/a&gt;, 千古壹号. &lt;a href=&quot;#fnref:ecs&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:web&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/li_Dijkstra/article/details/79408595&quot;&gt;“阿里云ECS服务器+WordPress快速搭建个人博客”&lt;/a&gt;, li_Dijkstra. &lt;a href=&quot;#fnref:web&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:bil&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/bbd5ff1c8f9e&quot;&gt;“用wordpress建中英文双语及多语言切换的网站”&lt;/a&gt;, 翌子涵. &lt;a href=&quot;#fnref:bil&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="Web" /><summary type="html">阿里云ECS 1. 服务器购买1 登录阿里云官网，在“弹性计算”下选择云服务器ECS。阿里云对于不同的账号类型（个人或企业）会有不同的优惠活动，按需选择即可，初级用户可参考以下配置： CPU 2核 内存 4G 操作系统 CentOS 8.0 64位 高效云盘 50 GB 固定带宽 3 Mbps “阿里云+wordpress搭建个人博客网站”, 千古壹号. &amp;#8617;</summary></entry><entry><title type="html">中國國際太陽能十項全能競賽標準化場地</title><link href="http://localhost:4000/design/2019/02/20/quotes.html" rel="alternate" type="text/html" title="中國國際太陽能十項全能競賽標準化場地" /><published>2019-02-20T00:00:00+08:00</published><updated>2019-02-20T00:00:00+08:00</updated><id>http://localhost:4000/design/2019/02/20/quotes</id><content type="html" xml:base="http://localhost:4000/design/2019/02/20/quotes.html">&lt;!-- more --&gt;</content><author><name></name></author><category term="Planning" /><summary type="html"></summary></entry><entry><title type="html">JS Cheat Sheet</title><link href="http://localhost:4000/2018/10/30/js-cheat-sheet.html" rel="alternate" type="text/html" title="JS Cheat Sheet" /><published>2018-10-30T00:00:00+08:00</published><updated>2018-10-30T00:00:00+08:00</updated><id>http://localhost:4000/2018/10/30/js-cheat-sheet</id><content type="html" xml:base="http://localhost:4000/2018/10/30/js-cheat-sheet.html">&lt;p&gt;To direct a &lt;code class=&quot;highlighter-rouge&quot;&gt;button&lt;/code&gt; tag to an URL:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;onclick=&quot;javascript:window.location.href='www.lucas.sdchina.org.cn'&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To get current time:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
+document.write(new Date().getFullYear());	//Get current year
+document.write(new Date().toLocaleString( ); 	//Get current date and time
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="CheatSheet" /><category term="Javascript" /><summary type="html">To direct a button tag to an URL: onclick=&quot;javascript:window.location.href='www.lucas.sdchina.org.cn'&quot; To get current time: &amp;lt;script type=&quot;text/javascript&quot;&amp;gt; document.write(new Date().getFullYear()); //Get current year document.write(new Date().toLocaleString( ); //Get current date and time &amp;lt;/script&amp;gt;</summary></entry><entry><title type="html">You’ve Got to Find What You Love</title><link href="http://localhost:4000/bookmarked/2017/06/11/steve-jobs-standford-commencement-speech.html" rel="alternate" type="text/html" title="You've Got to Find What You Love" /><published>2017-06-11T00:00:00+08:00</published><updated>2017-06-11T00:00:00+08:00</updated><id>http://localhost:4000/bookmarked/2017/06/11/steve-jobs-standford-commencement-speech</id><content type="html" xml:base="http://localhost:4000/bookmarked/2017/06/11/steve-jobs-standford-commencement-speech.html">&lt;p class=&quot;post-img&quot;&gt;
+    &lt;img src=&quot;/assets/img/blog/steve-jobs-2005-stanford-commencement-address.jpg&quot; /&gt;
+&lt;/p&gt;
+
+&lt;audio src=&quot;/assets/mp3/Steve_Jobs-2005-Stanford-Commencement-Address.mp3&quot; controls=&quot;controls&quot;&gt;
+Your browser does not support the audio element.
+&lt;/audio&gt;
+
+&lt;p&gt;&lt;em&gt;The Commencement address delivered by Steve Jobs, CEO of Apple Computer and of Pixar Animation Studios, June 12, 2005.&lt;/em&gt;&lt;sup id=&quot;fnref:ref&quot;&gt;&lt;a href=&quot;#fn:ref&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;I am honored to be with you today at your commencement from one of the finest universities in the world. I never graduated from college. Truth be told, this is the closest I’ve ever gotten to a college graduation. Today I want to tell you three stories from my life. That’s it. No big deal. Just three stories.&lt;/p&gt;
+
+&lt;p&gt;The first story is about connecting the dots.&lt;/p&gt;
+
+&lt;p&gt;I dropped out of Reed College after the first 6 months, but then stayed around as a drop-in for another 18 months or so before I really quit. So why did I drop out?&lt;/p&gt;
+
+&lt;p&gt;It started before I was born. My biological mother was a young, unwed college graduate student, and she decided to put me up for adoption. She felt very strongly that I should be adopted by college graduates, so everything was all set for me to be adopted at birth by a lawyer and his wife. Except that when I popped out they decided at the last minute that they really wanted a girl. So my parents, who were on a waiting list, got a call in the middle of the night asking: “We have an unexpected baby boy; do you want him?” They said: “Of course.” My biological mother later found out that my mother had never graduated from college and that my father had never graduated from high school. She refused to sign the final adoption papers. She only relented a few months later when my parents promised that I would someday go to college.&lt;/p&gt;
+
+&lt;p&gt;And 17 years later I did go to college. But I naively chose a college that was almost as expensive as Stanford, and all of my working-class parents’ savings were being spent on my college tuition. After six months, I couldn’t see the value in it. I had no idea what I wanted to do with my life and no idea how college was going to help me figure it out. And here I was spending all of the money my parents had saved their entire life. So I decided to drop out and trust that it would all work out OK. It was pretty scary at the time, but looking back it was one of the best decisions I ever made. The minute I dropped out I could stop taking the required classes that didn’t interest me, and begin dropping in on the ones that looked interesting.&lt;/p&gt;
+
+&lt;p&gt;It wasn’t all romantic. I didn’t have a dorm room, so I slept on the floor in friends’ rooms, I returned Coke bottles for the 5¢ deposits to buy food with, and I would walk the 7 miles across town every Sunday night to get one good meal a week at the Hare Krishna temple. I loved it. And much of what I stumbled into by following my curiosity and intuition turned out to be priceless later on. Let me give you one example:&lt;/p&gt;
+
+&lt;p&gt;Reed College at that time offered perhaps the best calligraphy instruction in the country. Throughout the campus every poster, every label on every drawer, was beautifully hand calligraphed. Because I had dropped out and didn’t have to take the normal classes, I decided to take a calligraphy class to learn how to do this. I learned about serif and sans serif typefaces, about varying the amount of space between different letter combinations, about what makes great typography great. It was beautiful, historical, artistically subtle in a way that science can’t capture, and I found it fascinating.&lt;/p&gt;
+
+&lt;p&gt;None of this had even a hope of any practical application in my life. But 10 years later, when we were designing the first Macintosh computer, it all came back to me. And we designed it all into the Mac. It was the first computer with beautiful typography. If I had never dropped in on that single course in college, the Mac would have never had multiple typefaces or proportionally spaced fonts. And since Windows just copied the Mac, it’s likely that no personal computer would have them. If I had never dropped out, I would have never dropped in on this calligraphy class, and personal computers might not have the wonderful typography that they do. Of course it was impossible to connect the dots looking forward when I was in college. But it was very, very clear looking backward 10 years later.&lt;/p&gt;
+
+&lt;p&gt;Again, you can’t connect the dots looking forward; you can only connect them looking backward. So you have to trust that the dots will somehow connect in your future. You have to trust in something — your gut, destiny, life, karma, whatever. This approach has never let me down, and it has made all the difference in my life.&lt;/p&gt;
+
+&lt;p&gt;My second story is about love and loss.&lt;/p&gt;
+
+&lt;p&gt;I was lucky — I found what I loved to do early in life. Woz and I started Apple in my parents’ garage when I was 20. We worked hard, and in 10 years Apple had grown from just the two of us in a garage into a $2 billion company with over 4,000 employees. We had just released our finest creation — the Macintosh — a year earlier, and I had just turned 30. And then I got fired. How can you get fired from a company you started? Well, as Apple grew we hired someone who I thought was very talented to run the company with me, and for the first year or so things went well. But then our visions of the future began to diverge and eventually we had a falling out. When we did, our Board of Directors sided with him. So at 30 I was out. And very publicly out. What had been the focus of my entire adult life was gone, and it was devastating.&lt;/p&gt;
+
+&lt;p&gt;I really didn’t know what to do for a few months. I felt that I had let the previous generation of entrepreneurs down — that I had dropped the baton as it was being passed to me. I met with David Packard and Bob Noyce and tried to apologize for screwing up so badly. I was a very public failure, and I even thought about running away from the valley. But something slowly began to dawn on me — I still loved what I did. The turn of events at Apple had not changed that one bit. I had been rejected, but I was still in love. And so I decided to start over.&lt;/p&gt;
+
+&lt;p&gt;I didn’t see it then, but it turned out that getting fired from Apple was the best thing that could have ever happened to me. The heaviness of being successful was replaced by the lightness of being a beginner again, less sure about everything. It freed me to enter one of the most creative periods of my life.&lt;/p&gt;
+
+&lt;p&gt;During the next five years, I started a company named NeXT, another company named Pixar, and fell in love with an amazing woman who would become my wife. Pixar went on to create the world’s first computer animated feature film, Toy Story, and is now the most successful animation studio in the world. In a remarkable turn of events, Apple bought NeXT, I returned to Apple, and the technology we developed at NeXT is at the heart of Apple’s current renaissance. And Laurene and I have a wonderful family together.&lt;/p&gt;
+
+&lt;p&gt;I’m pretty sure none of this would have happened if I hadn’t been fired from Apple. It was awful tasting medicine, but I guess the patient needed it. Sometimes life hits you in the head with a brick. Don’t lose faith. I’m convinced that the only thing that kept me going was that I loved what I did. You’ve got to find what you love. And that is as true for your work as it is for your lovers. Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. If you haven’t found it yet, keep looking. Don’t settle. As with all matters of the heart, you’ll know when you find it. And, like any great relationship, it just gets better and better as the years roll on. So keep looking until you find it. Don’t settle.&lt;/p&gt;
+
+&lt;p&gt;My third story is about death.&lt;/p&gt;
+
+&lt;p&gt;When I was 17, I read a quote that went something like: “If you live each day as if it was your last, someday you’ll most certainly be right.” It made an impression on me, and since then, for the past 33 years, I have looked in the mirror every morning and asked myself: “If today were the last day of my life, would I want to do what I am about to do today?” And whenever the answer has been “No” for too many days in a row, I know I need to change something.&lt;/p&gt;
+
+&lt;p&gt;Remembering that I’ll be dead soon is the most important tool I’ve ever encountered to help me make the big choices in life. Because almost everything — all external expectations, all pride, all fear of embarrassment or failure — these things just fall away in the face of death, leaving only what is truly important. Remembering that you are going to die is the best way I know to avoid the trap of thinking you have something to lose. You are already naked. There is no reason not to follow your heart.&lt;/p&gt;
+
+&lt;p&gt;About a year ago I was diagnosed with cancer. I had a scan at 7:30 in the morning, and it clearly showed a tumor on my pancreas. I didn’t even know what a pancreas was. The doctors told me this was almost certainly a type of cancer that is incurable, and that I should expect to live no longer than three to six months. My doctor advised me to go home and get my affairs in order, which is doctor’s code for prepare to die. It means to try to tell your kids everything you thought you’d have the next 10 years to tell them in just a few months. It means to make sure everything is buttoned up so that it will be as easy as possible for your family. It means to say your goodbyes.&lt;/p&gt;
+
+&lt;p&gt;I lived with that diagnosis all day. Later that evening I had a biopsy, where they stuck an endoscope down my throat, through my stomach and into my intestines, put a needle into my pancreas and got a few cells from the tumor. I was sedated, but my wife, who was there, told me that when they viewed the cells under a microscope the doctors started crying because it turned out to be a very rare form of pancreatic cancer that is curable with surgery. I had the surgery and I’m fine now.&lt;/p&gt;
+
+&lt;p&gt;This was the closest I’ve been to facing death, and I hope it’s the closest I get for a few more decades. Having lived through it, I can now say this to you with a bit more certainty than when death was a useful but purely intellectual concept:&lt;/p&gt;
+
+&lt;p&gt;No one wants to die. Even people who want to go to heaven don’t want to die to get there. And yet death is the destination we all share. No one has ever escaped it. And that is as it should be, because Death is very likely the single best invention of Life. It is Life’s change agent. It clears out the old to make way for the new. Right now the new is you, but someday not too long from now, you will gradually become the old and be cleared away. Sorry to be so dramatic, but it is quite true.&lt;/p&gt;
+
+&lt;p&gt;Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma — which is living with the results of other people’s thinking. Don’t let the noise of others’ opinions drown out your own inner voice. And most important, have the courage to follow your heart and intuition. They somehow already know what you truly want to become. Everything else is secondary.&lt;/p&gt;
+
+&lt;p&gt;When I was young, there was an amazing publication called The Whole Earth Catalog, which was one of the bibles of my generation. It was created by a fellow named Stewart Brand not far from here in Menlo Park, and he brought it to life with his poetic touch. This was in the late 1960s, before personal computers and desktop publishing, so it was all made with typewriters, scissors and Polaroid cameras. It was sort of like Google in paperback form, 35 years before Google came along: It was idealistic, and overflowing with neat tools and great notions.&lt;/p&gt;
+
+&lt;p&gt;Stewart and his team put out several issues of The Whole Earth Catalog, and then when it had run its course, they put out a final issue. It was the mid-1970s, and I was your age. On the back cover of their final issue was a photograph of an early morning country road, the kind you might find yourself hitchhiking on if you were so adventurous. Beneath it were the words: “Stay Hungry. Stay Foolish.” It was their farewell message as they signed off. Stay Hungry. Stay Foolish. And I have always wished that for myself. And now, as you graduate to begin anew, I wish that for you.&lt;/p&gt;
+
+&lt;p&gt;Stay Hungry. Stay Foolish.&lt;/p&gt;
+
+&lt;p&gt;Thank you all very much.&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:ref&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;http://news.stanford.edu/2005/06/14/jobs-061505/&quot;&gt;“‘You’ve got to find what you love,’ Jobs says”&lt;/a&gt;, Stanford University &lt;a href=&quot;#fnref:ref&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="Speech" /><summary type="html">Your browser does not support the audio element. The Commencement address delivered by Steve Jobs, CEO of Apple Computer and of Pixar Animation Studios, June 12, 2005.1 “‘You’ve got to find what you love,’ Jobs says”, Stanford University &amp;#8617;</summary></entry><entry><title type="html">Jekyll Cheat Sheet</title><link href="http://localhost:4000/2017/06/03/jekyll-cheat-sheet.html" rel="alternate" type="text/html" title="Jekyll Cheat Sheet" /><published>2017-06-03T00:00:00+08:00</published><updated>2017-06-03T00:00:00+08:00</updated><id>http://localhost:4000/2017/06/03/jekyll-cheat-sheet</id><content type="html" xml:base="http://localhost:4000/2017/06/03/jekyll-cheat-sheet.html">&lt;p&gt;Quick Start:&lt;sup id=&quot;fnref:ref&quot;&gt;&lt;a href=&quot;#fn:ref&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~ $ gem install jekyll bundler
+~ $ jekyll new my-awesome-site
+~ $ cd my-awsome-site
+~/my-awesome-site $ bundle exec jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now browse to &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:4000&lt;/code&gt;&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Previous version to run Jekyll:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll serve --watch --drafts --baseurl &quot;&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;There are so many Jekyll variables and filters to remember. Refer to this &lt;a href=&quot;https://learn.cloudcannon.com/jekyll-cheat-sheet/&quot;&gt;Jekyll Cheat Sheet&lt;/a&gt;&lt;sup id=&quot;fnref:cloudcannon&quot;&gt;&lt;a href=&quot;#fn:cloudcannon&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; to see everything that Jekyll can do.&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:ref&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://jekyllrb.com&quot;&gt;“Jekyll”&lt;/a&gt;, Simple, blog-aware, static sites &lt;a href=&quot;#fnref:ref&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:cloudcannon&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://learn.cloudcannon.com/jekyll-cheat-sheet/&quot;&gt;“Jekyll Cheat Sheet”&lt;/a&gt; CloudCannon Academy &lt;a href=&quot;#fnref:cloudcannon&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="CheatSheet" /><category term="Jekyll" /><summary type="html">Quick Start:1 ~ $ gem install jekyll bundler ~ $ jekyll new my-awesome-site ~ $ cd my-awsome-site ~/my-awesome-site $ bundle exec jekyll serve Now browse to http://localhost:4000 “Jekyll”, Simple, blog-aware, static sites &amp;#8617;</summary></entry><entry><title type="html">Setting up a Custom Domain for Your GitHub Site</title><link href="http://localhost:4000/2017/04/22/setting-up-a-custom-domain-for-your-github-site.html" rel="alternate" type="text/html" title="Setting up a Custom Domain for Your GitHub Site" /><published>2017-04-22T00:00:00+08:00</published><updated>2017-04-22T00:00:00+08:00</updated><id>http://localhost:4000/2017/04/22/setting-up-a-custom-domain-for-your-github-site</id><content type="html" xml:base="http://localhost:4000/2017/04/22/setting-up-a-custom-domain-for-your-github-site.html">&lt;p&gt;Configure the custom domain on your GitHub Pages site&lt;sup id=&quot;fnref:ref1&quot;&gt;&lt;a href=&quot;#fn:ref1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;On GitHub, navigate to your GitHub Pages site’s repository.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Under your repository name, click &lt;code class=&quot;highlighter-rouge&quot;&gt;Settings&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Under “Custom domain”, add or remove your custom domain and click &lt;code class=&quot;highlighter-rouge&quot;&gt;Save&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Set up your custom domain with your DNS provider, depending on the type of custom domain you have&lt;sup id=&quot;fnref:ref2&quot;&gt;&lt;a href=&quot;#fn:ref2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://help.github.com/articles/setting-up-an-apex-domain/&quot;&gt;Setting up an apex domain&lt;/a&gt; such as &lt;code class=&quot;highlighter-rouge&quot;&gt;example.com&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://help.github.com/articles/setting-up-a-www-subdomain/&quot;&gt;Setting up a &lt;code class=&quot;highlighter-rouge&quot;&gt;www&lt;/code&gt; subdomain&lt;/a&gt; such as &lt;code class=&quot;highlighter-rouge&quot;&gt;www.example.com&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://help.github.com/articles/setting-up-an-apex-domain-and-www-subdomain/&quot;&gt;Setting up an apex domain and &lt;code class=&quot;highlighter-rouge&quot;&gt;www&lt;/code&gt; subdomain&lt;/a&gt; such as &lt;code class=&quot;highlighter-rouge&quot;&gt;example.com&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;www.example.com&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://help.github.com/articles/setting-up-a-custom-subdomain/&quot;&gt;Setting up a custom subdomain&lt;/a&gt; such as &lt;code class=&quot;highlighter-rouge&quot;&gt;blog.example.com&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:ref1&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://help.github.com/articles/adding-or-removing-a-custom-domain-for-your-github-pages-site/&quot;&gt;“Adding or removing a custom domain for your GitHub Pages site”&lt;/a&gt;, GitHub Help. &lt;a href=&quot;#fnref:ref1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:ref2&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://help.github.com/articles/quick-start-setting-up-a-custom-domain/&quot;&gt;“Quick start: Setting up a custom domain”&lt;/a&gt;, GitHub Help. &lt;a href=&quot;#fnref:ref2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="GitHub" /><summary type="html">Configure the custom domain on your GitHub Pages site1: On GitHub, navigate to your GitHub Pages site’s repository. Under your repository name, click Settings. Under “Custom domain”, add or remove your custom domain and click Save. “Adding or removing a custom domain for your GitHub Pages site”, GitHub Help. &amp;#8617;</summary></entry><entry><title type="html">Installing MySQL on MacOS</title><link href="http://localhost:4000/2017/04/22/installing-mysql-on-macos.html" rel="alternate" type="text/html" title="Installing MySQL on MacOS" /><published>2017-04-22T00:00:00+08:00</published><updated>2017-04-22T00:00:00+08:00</updated><id>http://localhost:4000/2017/04/22/installing-mysql-on-macos</id><content type="html" xml:base="http://localhost:4000/2017/04/22/installing-mysql-on-macos.html">&lt;p&gt;Oracle’s MySQL is a popular open source relational database management system that is based on Structured Query Language (SQL). Installing MySQL on an Mac is easier than you might expect, particularly if you use the native installation package instead of the TAR package, which requires access and changes to the command line in Terminal mode&lt;sup id=&quot;fnref:ins&quot;&gt;&lt;a href=&quot;#fn:ins&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Download the latest version of MySQL for MacOS from the &lt;a href=&quot;https://dev.mysql.com/downloads/mysql/&quot;&gt;MySQL website&lt;/a&gt;. Select the native package DMG archive version, instead of the TAR version.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- more --&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Double-click the .dmg icon to mount the archive, which contains the installer.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Double-click the .pkg icon for the MySQL package installer.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Click &lt;code class=&quot;highlighter-rouge&quot;&gt;Continue&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Agree&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Install&lt;/code&gt; to execute the installation using all defaults.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Record the temporary password&lt;/strong&gt; that displays during the installation process (&lt;code class=&quot;highlighter-rouge&quot;&gt;v7xtQSB?kgSj&lt;/code&gt;). This password cannot be recovered. You must save it. After you log in to MySQL, you’ll be prompted to create a new password.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Press &lt;code class=&quot;highlighter-rouge&quot;&gt;Close&lt;/code&gt; to complete the installation.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Now the MySQL server is installed on the Mac, but it does not load by default. Start MySQL by clicking &lt;code class=&quot;highlighter-rouge&quot;&gt;Start MySQL Server&lt;/code&gt; using the MySQL Preference Pane, which was installed during the default installation, from System Preferences. You can configure MySQL to automatically start when you turn on your computer using the MySQL Preference Pane.&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:ins&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.thoughtco.com/installing-mysql-on-mac-2693866&quot;&gt;“Installing MySQL on a Mac is Easier Than You Think”&lt;/a&gt;, ThoughtCo. &lt;a href=&quot;#fnref:ins&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="MySQL" /><summary type="html">Oracle’s MySQL is a popular open source relational database management system that is based on Structured Query Language (SQL). Installing MySQL on an Mac is easier than you might expect, particularly if you use the native installation package instead of the TAR package, which requires access and changes to the command line in Terminal mode1. Download the latest version of MySQL for MacOS from the MySQL website. Select the native package DMG archive version, instead of the TAR version. “Installing MySQL on a Mac is Easier Than You Think”, ThoughtCo. &amp;#8617;</summary></entry><entry><title type="html">Pagination</title><link href="http://localhost:4000/2017/04/16/pagination.html" rel="alternate" type="text/html" title="Pagination" /><published>2017-04-16T00:00:00+08:00</published><updated>2017-04-16T00:00:00+08:00</updated><id>http://localhost:4000/2017/04/16/pagination</id><content type="html" xml:base="http://localhost:4000/2017/04/16/pagination.html">&lt;p&gt;With many websites, especially blogs, it’s very common to break the main listing of posts up into smaller lists and display them over multiple pages. Jekyll offers a pagination plugin, so you can automatically generate the appropriate files and folders you need for paginated listings&lt;sup id=&quot;fnref:pag&quot;&gt;&lt;a href=&quot;#fn:pag&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;p&gt;For Jekyll 3, include the &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll-paginate&lt;/code&gt; plugin in your Gemfile and in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; under &lt;code class=&quot;highlighter-rouge&quot;&gt;gems&lt;/code&gt;. For Jekyll 2, this is standard:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gems: [jekyll-paginate]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;!-- more --&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Pagination does not work from within Markdown or Textile files from your Jekyll site. Pagination works when called from within the HTML file, named &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt;, which optionally may reside in and produce pagination from within a subdirectory, via the &lt;code class=&quot;highlighter-rouge&quot;&gt;paginate_path&lt;/code&gt; configuration value.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;enable-pagination&quot;&gt;Enable pagination&lt;/h4&gt;
+
+&lt;p&gt;To enable pagination for your blog, add a line to the &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file that specifies how many items should be displayed per page. The number should be the maximum number of Posts you’d like to be displayed per-page in the generated site:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;paginate: 5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You may also specify the destination of the pagination pages:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;paginate_path: &quot;/blog/page:num/&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will read in &lt;code class=&quot;highlighter-rouge&quot;&gt;blog/index.html&lt;/code&gt;, send it each pagination page in Liquid as &lt;code class=&quot;highlighter-rouge&quot;&gt;paginator&lt;/code&gt; and write the output to &lt;code class=&quot;highlighter-rouge&quot;&gt;blog/page:num/&lt;/code&gt;, where &lt;code class=&quot;highlighter-rouge&quot;&gt;:num&lt;/code&gt; is the pagination page number, starting with &lt;code class=&quot;highlighter-rouge&quot;&gt;2&lt;/code&gt;. If a site has 12 posts and specifies &lt;code class=&quot;highlighter-rouge&quot;&gt;paginate: 5&lt;/code&gt;, Jekyll will write &lt;code class=&quot;highlighter-rouge&quot;&gt;blog/index.html&lt;/code&gt; with the first 5 posts, &lt;code class=&quot;highlighter-rouge&quot;&gt;blog/page2/index.html&lt;/code&gt; with the next 5 posts and &lt;code class=&quot;highlighter-rouge&quot;&gt;blog/page3/index.html&lt;/code&gt; with the last 2 posts into the destination directory.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Pagination does not support tags or categories&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;Pagination pages through every post in the &lt;code class=&quot;highlighter-rouge&quot;&gt;posts&lt;/code&gt; variable unless a post has &lt;code class=&quot;highlighter-rouge&quot;&gt;hidden: true&lt;/code&gt; in its YAML Front Matter. It does not currently allow paging over groups of posts linked by a common tag or category. It cannot include any collection of documents because it is restricted to posts.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;render-the-paginated-posts&quot;&gt;Render the paginated Posts&lt;/h4&gt;
+
+&lt;p&gt;The next thing you need to do is to actually display your posts in a list using the &lt;code class=&quot;highlighter-rouge&quot;&gt;paginator&lt;/code&gt; variable that will now be available to you. You’ll probably want to do this in one of the main pages of your site. Here’s one example of a simple way of rendering paginated Posts in a HTML file:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- This loops through the paginated posts --&amp;gt;&lt;/span&gt;
+{% for post in paginator.posts %}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ post.url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ post.title }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;author&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;date&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ post.date }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	{{ post.content }}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+{% endfor %}
+
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Pagination links --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;pagination&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	{% if paginator.previous_page %}
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ paginator.previous_page_path }}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;previous&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Previous&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+	{% else %}
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;previous&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Previous&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+	{% endif %}
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;page_number &quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Page: {{ paginator.page }} of {{ paginator.total_pages }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+	{% if paginator.next_page %}
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ paginator.next_page_path }}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;next&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Next&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+	{% else %}
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;next&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Next&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+	{% endif %}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Beware the page one edge-case&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;Jekyll does not generate a ‘page1’ folder, so the above code will not work when a &lt;code class=&quot;highlighter-rouge&quot;&gt;/page1&lt;/code&gt; link is produced. See below for a way to handle this if it’s a problem for you.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The following HTML snippet should handle page one, and render a list of each page with links to all but the current page.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Pagination links --&amp;gt;&lt;/span&gt;
+{% if paginator.total_pages &amp;gt; 1 %}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;pagination&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	{% if paginator.previous_page %}
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;laquo;&lt;/span&gt; Prev&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+	{% else %}
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;span&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;laquo;&lt;/span&gt; Prev&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+	{% endif %}
+
+	{% for page in (1..paginator.total_pages) %}
+	{% if page == paginator.page %}
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;em&amp;gt;&lt;/span&gt;{{ page }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/em&amp;gt;&lt;/span&gt;
+	{% elsif page == 1 %}
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ page }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+	{% else %}
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ page }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+	{% endif %}
+	{% endfor %}
+
+	{% if paginator.next_page %}
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Next &lt;span class=&quot;ni&quot;&gt;&amp;amp;raquo;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+	{% else %}
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;span&amp;gt;&lt;/span&gt;Next &lt;span class=&quot;ni&quot;&gt;&amp;amp;raquo;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+	{% endif %}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+{% endif %}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:pag&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;http://jekyllrb.com/docs/pagination/&quot;&gt;“Pagination”&lt;/a&gt;, Jekyll &lt;a href=&quot;#fnref:pag&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="Jekyll" /><summary type="html">With many websites, especially blogs, it’s very common to break the main listing of posts up into smaller lists and display them over multiple pages. Jekyll offers a pagination plugin, so you can automatically generate the appropriate files and folders you need for paginated listings1. For Jekyll 3, include the jekyll-paginate plugin in your Gemfile and in your _config.yml under gems. For Jekyll 2, this is standard: gems: [jekyll-paginate] “Pagination”, Jekyll &amp;#8617;</summary></entry><entry><title type="html">Group Posts by Year</title><link href="http://localhost:4000/2016/05/11/group-posts-by-year.html" rel="alternate" type="text/html" title="Group Posts by Year" /><published>2016-05-11T00:00:00+08:00</published><updated>2016-05-11T00:00:00+08:00</updated><id>http://localhost:4000/2016/05/11/group-posts-by-year</id><content type="html" xml:base="http://localhost:4000/2016/05/11/group-posts-by-year.html">&lt;p&gt;Here is the code template I am using to make a chronological archive&lt;sup id=&quot;fnref:mik&quot;&gt;&lt;a href=&quot;#fn:mik&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;{% for post in site.categories.[page.category] %}
+{% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+{% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+
+{% if forloop.first %}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;{{ year }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+{% elsif year != nyear %}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&amp;lt;p&amp;gt;&lt;/span&gt;{{ year }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+{% endif %}
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{site.baseurl}}{{post.url}}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ post.title }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+{{ post.date | date: &quot;%-m/%-d/%y&quot; }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+{% endfor %}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:mik&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;http://mikerowecode.com/2010/08/jekyll_archives_grouped_by_year.html&quot;&gt;“Jekyll archives grouped by date”&lt;/a&gt;, mikerowecode. &lt;a href=&quot;#fnref:mik&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="Jekyll" /><summary type="html">Here is the code template I am using to make a chronological archive1. {% for post in site.categories.[page.category] %} {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %} {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %} {% if forloop.first %} &amp;lt;p&amp;gt;{{ year }}&amp;lt;/p&amp;gt;&amp;lt;ul&amp;gt; {% elsif year != nyear %} &amp;lt;/ul&amp;gt;&amp;lt;p&amp;gt;{{ year }}&amp;lt;/p&amp;gt;&amp;lt;ul&amp;gt; {% endif %} &amp;lt;li&amp;gt;&amp;lt;a href=&quot;{{site.baseurl}}{{post.url}}&quot;&amp;gt;{{ post.title }}&amp;lt;/a&amp;gt; {{ post.date | date: &quot;%-m/%-d/%y&quot; }}&amp;lt;/li&amp;gt; {% endfor %} &amp;lt;/ul&amp;gt; “Jekyll archives grouped by date”, mikerowecode. &amp;#8617;</summary></entry><entry><title type="html">Previous/Next Post within a Category</title><link href="http://localhost:4000/2016/03/20/previous-next-post-within-a-category.html" rel="alternate" type="text/html" title="Previous/Next Post within a Category" /><published>2016-03-20T00:00:00+08:00</published><updated>2016-03-20T00:00:00+08:00</updated><id>http://localhost:4000/2016/03/20/previous-next-post-within-a-category</id><content type="html" xml:base="http://localhost:4000/2016/03/20/previous-next-post-within-a-category.html">&lt;p&gt;If your blog lists all posts in only one section, you can always use &lt;code class=&quot;highlighter-rouge&quot;&gt;{{post.previous.url}}&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;{{post.next.url}}&lt;/code&gt; to make links to previous and next posts&lt;sup id=&quot;fnref:jek&quot;&gt;&lt;a href=&quot;#fn:jek&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;. However, sometimes we group our posts in defferent sections by category. In this case, &lt;code class=&quot;highlighter-rouge&quot;&gt;post.previous&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;post.next&lt;/code&gt; are no longer handy to navigate because they will link to posts in other categries which are not supposed to be shown in current section. To navigate previous/next post within one category, the following code template is presented&lt;sup id=&quot;fnref:tem&quot;&gt;&lt;a href=&quot;#fn:tem&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;{% if page.categories %}
+    {% assign category = page.categories[0] %}
+    {% assign posts = site.categories[category] %}
+
+    {% for post in posts %}
+        {% if post.url == page.url %}
+            {% assign post_index0 = forloop.index0 %}
+            {% assign post_index1 = forloop.index %}
+        {% endif %}
+    {% endfor %}
+
+    {% for post in posts %}
+        {% if post_index0 == forloop.index %}
+            {% assign next_post = post %}
+        {% endif %}
+        {% if post_index1 == forloop.index0 %}
+            {% assign prev_post = post %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+{% if next_post %}
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{site.baseurl}}{{next_post.url}}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;prev&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;laquo;&lt;/span&gt; {{next_post.title}}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+{% endif %}
+
+{% if prev_post %}
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{site.baseurl}}{{prev_post.url}}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;next&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{prev_post.title}} &lt;span class=&quot;ni&quot;&gt;&amp;amp;raquo;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+{% endif %}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:jek&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;http://david.elbe.me/jekyll/2015/06/20/how-to-link-to-next-and-previous-post-with-jekyll.html&quot;&gt;“Jekyll – how to link to next/previous post on your blog”&lt;/a&gt;, David Elbe. &lt;a href=&quot;#fnref:jek&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:tem&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://github.com/jekyll/jekyll/issues/260&quot;&gt;“Template Variables for Next/Previous Posts Within a Category”&lt;/a&gt;, surajram. &lt;a href=&quot;#fnref:tem&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="Jekyll" /><summary type="html">If your blog lists all posts in only one section, you can always use {{post.previous.url}} and {{post.next.url}} to make links to previous and next posts1. However, sometimes we group our posts in defferent sections by category. In this case, post.previous and post.next are no longer handy to navigate because they will link to posts in other categries which are not supposed to be shown in current section. To navigate previous/next post within one category, the following code template is presented2. “Jekyll – how to link to next/previous post on your blog”, David Elbe. &amp;#8617; “Template Variables for Next/Previous Posts Within a Category”, surajram. &amp;#8617;</summary></entry></feed>

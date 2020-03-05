@@ -1,0 +1,37 @@
+---
+layout: default
+title: "Tags"
+permalink: /tags/
+---
+
+
+<p class="page-title">
+	<span class="btn btn-sm btn-round btn-highlight disabled">
+		<span class="glyphicon glyphicon-tag"></span> &nbsp;
+		<span class="chn">標籤</span>
+		<span class="eng">TAGS</span>
+	</span>
+</p>
+
+
+<p class="page-nav">
+	{% for tag in site.tags %}
+	<a class="btn btn-xs btn-round" style="margin-bottom: 0.5em;" href="#{{ tag | first | slugize }}">#{{ tag | first }}</a></li>
+	{% endfor %}
+</p>
+
+
+
+{% for tag in site.tags %}
+{% capture tag_name %}{{ tag | first }}{% endcapture %}
+<section>
+	<a name="{{ tag_name | slugize }}"></a>
+	<span id="#{{ tag_name | slugize }}" class="slim gray">#{{ tag_name }}</span>
+	<ul>
+		{% for post in site.tags[tag_name] %}
+		<span class="gray slim pull-right">{{ post.date | date_to_string }}</span>
+		<li><a href="{{ post.url }}">{{post.title}}</a></li>
+		{% endfor %}
+	</ul>
+</section>
+{% endfor %}

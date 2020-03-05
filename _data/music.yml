@@ -1,0 +1,36 @@
+popular:
+- name: "Ticket"
+  src: "ChookiatSakveerakulAugustBand-Ticket"
+  artist: "Chookiat Sakveerakul & August Band"
+  genre: "Popular"
+
+- name: "Lovesick"
+  src: "3union-Lovesick"
+  artist: "3union"
+  genre: "Popular"
+
+- name: "Reality"
+  src: "RichardSanderson-Reality"
+  artist: "Richard Sanderson"
+  genre: "Popular"
+
+
+
+worship:
+- name: "Fires"
+  src: "Matt_Redman-Fires"
+  artist: "Matt Redman"
+  genre: "Worship"
+
+- name: "10000 Reasons"
+  src: "Matt_Redman-10000_Reasons"
+  artist: "Matt Redman"
+  genre: "Worship"
+
+
+
+instrumental:
+- name: "The Right Path"
+  src: "ThomasGreenberg-TheRightPath"
+  artist: "Thomas Greenberg"
+  genre: "Instrumental"
