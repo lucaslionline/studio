@@ -34,3 +34,17 @@ sdc-site:
   txt: "Tour Route"
 - src: "construction_route"
   txt: "Construction Route"
+
+sdc-entrance:
+- src: "e1"
+  txt: "East Entrance"
+- src: "e2"
+  txt: "East Entrance"
+- src: "e3"
+  txt: "East Entrance"
+- src: "e4"
+  txt: "East Entrance"
+- src: "s2"
+  txt: "Main Entrance"
+- src: "s3"
+  txt: "Logo Wall"

@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "2018中国国际太阳能十项全能竞赛导示设计"
-subtitle: "Signage Design for Solar Decathlon China 2018"
+title: "2018中国国际太阳能十项全能竞赛入口设计"
+subtitle: "Entrance Design for Solar Decathlon China 2018"
 categories: design
-tags: Signage
+tags: SDC
 ---
 
 
-<img src="{{ site.baseurl }}/assets/img/sdc-signage/cover.png" class="post-img">
+<img src="{{ site.baseurl }}/assets/img/sdc-entrance/s1.png" class="post-img">
 
 
 
@@ -23,15 +23,13 @@ tags: Signage
 		<li data-target="#myCarousel" data-slide-to="3"></li>
 		<li data-target="#myCarousel" data-slide-to="4"></li>
 		<li data-target="#myCarousel" data-slide-to="5"></li>
-		<li data-target="#myCarousel" data-slide-to="6"></li>
-		<li data-target="#myCarousel" data-slide-to="7"></li>
 	</ol>
 
 
 	<div class="carousel-inner" role="listbox">
-		{% for slide in site.data.images.sdc-signage %}
+		{% for slide in site.data.images.sdc-entrance %}
 		<div class="item {% if forloop.first %}active{% endif %}">
-			<img src="{{ site.baseurl }}/assets/img/sdc-signage/{{ slide.src }}.png">
+			<img src="{{ site.baseurl }}/assets/img/sdc-entrance/{{ slide.src }}.png">
 			<div class="container">
 				<div class="carousel-caption">
 					<p>

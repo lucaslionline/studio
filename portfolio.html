@@ -46,7 +46,7 @@ title: "Portfolio"
 	<div id="myTabContent" class="tab-content">
 		<div class="tab-pane fade" id="consultation">
 			<div class="list-group">
-				{% for post in site.categories.consultation reversed %}
+				{% for post in site.categories.consultation %}
 				<a href="{{ site.baseurl}}{{ post.url }}" class="list-group-item">
 					<span class="chn">{{ post.title }}</span>
 					<span class="eng">{{ post.subtitle }}</span>
@@ -63,7 +63,7 @@ title: "Portfolio"
 
 		<div class="tab-pane fade" id="design">
 			<div class="list-group">
-				{% for post in site.categories.design reversed %}
+				{% for post in site.categories.design %}
 				<a href="{{ site.baseurl}}{{ post.url }}" class="list-group-item">
 					<span class="chn">{{ post.title }}</span>
 					<span class="eng">{{ post.subtitle }}</span>
@@ -80,7 +80,7 @@ title: "Portfolio"
 
 		<div class="tab-pane fade" id="development">
 			<div class="list-group">
-				{% for post in site.categories.development reversed %}
+				{% for post in site.categories.development %}
 				<a href="{{ site.baseurl}}{{ post.url }}" class="list-group-item">
 					<span class="chn">{{ post.title }}</span>
 					<span class="eng">{{ post.subtitle }}</span>
