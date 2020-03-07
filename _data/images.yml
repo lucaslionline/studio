@@ -1,29 +1,36 @@
-- src: "pic3"
-  txt: "July 2015 @ Destin"
+sdc-signage:
+- src: "1"
+  txt: ""
+- src: "2"
+  txt: ""
+- src: "3"
+  txt: ""
+- src: "4"
+  txt: ""
+- src: "5"
+  txt: ""
+- src: "6"
+  txt: ""
+- src: "7"
+  txt: ""
+- src: "8"
+  txt: ""
 
-- src: "pic2"
-  txt: "July 2015 @ Orlando"
 
-- src: "pic4"
-  txt: "April 2018 @ Shenzhen"
-
-- src: "pic5"
-  txt: "April 2018 @ Guangzhou"
-
-- src: "pic8"
-  txt: "May 2019 @ Beijing"
-
-- src: "pic9"
-  txt: "June 2019 @ Shanghai"
-
-- src: "pic7"
-  txt: "June 2019 @ Ningbo"
-
-- src: "pic6"
-  txt: "July 2019 @ Beidaihe"
-
-- src: "pic10"
-  txt: "November 2019 @ San Francisco"
-
-- src: "pic11"
-  txt: "November 2019 @ Chicago"
+sdc-site:
+- src: "top_view"
+  txt: "Top view"
+- src: "main_entrance1"
+  txt: "Main Entrance"
+- src: "main_entrance2"
+  txt: "Main Entrance"
+- src: "signage"
+  txt: "Signage"
+- src: "competition_entries"
+  txt: "House Entrance"
+- src: "community_playground"
+  txt: "Community Playground"
+- src: "tour_route"
+  txt: "Tour Route"
+- src: "construction_route"
+  txt: "Construction Route"
