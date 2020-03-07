@@ -1,0 +1,123 @@
+---
+layout: default
+title: "Portfolio"
+---
+
+<p class="page-title">
+	<span class="btn btn-sm btn-round btn-highlight disabled">
+		<span class="glyphicon glyphicon-folder-open"></span> &nbsp;
+		<span class="chn">作品</span>
+		<span class="eng">PORTFOLIO</span>
+	</span>
+</p>
+
+
+
+
+
+<section>
+	<ul class="nav nav-tabs small" style="margin-bottom: 2em; text-align: center;">
+		<li id="tab-design">
+			<a href="#design" data-toggle="tab" aria-expanded="false">
+				<i data-feather="box" style="font-size: x-large;"></i><br>
+				<span class="chn">設計</span>
+				<span class="eng">Design</span>
+			</a>
+		</li>
+
+		<li id="tab-development">
+			<a href="#development" data-toggle="tab" aria-expanded="false">
+				<i data-feather="code" style="font-size: x-large;"></i><br>
+				<span class="chn">開發</span>
+				<span class="eng">Development</span>
+			</a>
+		</li>
+
+		<li id="tab-consultation">
+			<a href="#consultation" data-toggle="tab" aria-expanded="false">
+				<i data-feather="info" style="font-size: x-large;"></i><br>
+				<span class="chn">諮詢</span>
+				<span class="eng">Consultation</span>
+			</a>
+		</li>
+	</ul>
+
+
+	<div id="myTabContent" class="tab-content">
+		<div class="tab-pane fade" id="design">
+			<div class="list-group">
+				{% for post in site.categories.design reversed %}
+				<a href="{{ site.baseurl}}{{ post.url }}" class="list-group-item">
+					<span class="chn">{{ post.title }}</span>
+					<span class="eng">{{ post.subtitle }}</span>
+					<div class="gray slim small">
+						<i data-feather="calendar"></i> {{ post.date | date_to_string }}
+						<i class="pull-right">
+							#{{ post.tags }}
+						</i>
+					</div>
+				</a>
+				{% endfor %}
+			</div>
+		</div>
+
+		<div class="tab-pane fade" id="development">
+			<div class="list-group">
+				{% for post in site.categories.development reversed %}
+				<a href="{{ site.baseurl}}{{ post.url }}" class="list-group-item">
+					<span class="chn">{{ post.title }}</span>
+					<span class="eng">{{ post.subtitle }}</span>
+					<div class="gray slim small">
+						<i data-feather="calendar"></i> {{ post.date | date_to_string }}
+						<i class="pull-right">
+							#{{ post.tags }}
+						</i>
+					</div>
+				</a>
+				{% endfor %}
+			</div>
+		</div>
+
+		<div class="tab-pane fade" id="consultation">
+			<div class="list-group">
+				{% for post in site.categories.consultation reversed %}
+				<a href="{{ site.baseurl}}{{ post.url }}" class="list-group-item">
+					<span class="chn">{{ post.title }}</span>
+					<span class="eng">{{ post.subtitle }}</span>
+					<div class="gray slim small">
+						<i data-feather="calendar"></i> {{ post.date | date_to_string }}
+						<i class="pull-right">
+							#{{ post.tags }}
+						</i>
+					</div>
+				</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+var hashtag = window.location.search;
+var tag2 = RegExp(/development/);
+var tag3 = RegExp(/consultation/);
+if(tag2.exec(hashtag)){
+	document.getElementById('tab-development').className += "active";
+	document.getElementById('development').className += " active in";
+} else if(tag3.exec(hashtag)){
+	document.getElementById('tab-consultation').className += "active";
+	document.getElementById('consultation').className += " active in";
+} else {
+	document.getElementById('tab-design').className += "active";
+	document.getElementById('design').className += " active in";
+}
+</script>
+

@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
-	<title>LucaStudio | Settings</title>
+	<title>LucaStudio | Portfolio</title>
 	
 
 	<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-3.0.css">
@@ -25,79 +25,114 @@
 
 <body>
 	<div class="container clearance">
-		<!--script language="JavaScript">
-var password = "";
-password = prompt('Password required:','');
-if (password != 'll') {
-alert("Incorrect password!");
-window.history.back(-1);
-}
-</script-->
-
-
-<p class="page-title">
+		<p class="page-title">
 	<span class="btn btn-sm btn-round btn-highlight disabled">
-		<span class="glyphicon glyphicon-cog"></span> &nbsp;
-		<span class="chn">設置</span>
-		<span class="eng">SETTINGS</span>
+		<span class="glyphicon glyphicon-folder-open"></span> &nbsp;
+		<span class="chn">作品</span>
+		<span class="eng">PORTFOLIO</span>
 	</span>
 </p>
 
 
+
+
+
 <section>
-	<div class="row">
-		<div class="col-sm-4">
-			<input type="text" name="username" id="username" size="25" class="form-control" placeholder="Username" required>
-		</div>
+	<ul class="nav nav-tabs small" style="margin-bottom: 2em; text-align: center;">
+		<li id="tab-design">
+			<a href="#design" data-toggle="tab" aria-expanded="false">
+				<i data-feather="box" style="font-size: x-large;"></i><br>
+				<span class="chn">設計</span>
+				<span class="eng">Design</span>
+			</a>
+		</li>
 
-		<div class="col-sm-4">
-			<input type="password" name="password" id="password" size="25" class="form-control" placeholder="Password" required>
-		</div>
+		<li id="tab-development">
+			<a href="#development" data-toggle="tab" aria-expanded="false">
+				<i data-feather="code" style="font-size: x-large;"></i><br>
+				<span class="chn">開發</span>
+				<span class="eng">Development</span>
+			</a>
+		</li>
 
-		<div class="col-sm-4">
-			<button onclick="login()" class="btn btn-sm btn-round pull-right">
-				<span class="eng">Enter</span>
-				<span class="chn">進入</span>
-			</button>
-		</div>
-	</div>
-	<div id="txt" class="text-danger"></div>
-
-	<script type="text/javascript">
-	function login() {
-		if((document.getElementById("username").value=="lucaslionline") && (document.getElementById("password").value=="mbim111990")) {
-			txt.innerText="Welcome, admin!";
-			$("#admin").slideDown("normal");
-			return true;
-		} else {
-			txt.innerText="ID not recognized!";
-			return false;
-		}
-	}
-	</script>
+		<li id="tab-consultation">
+			<a href="#consultation" data-toggle="tab" aria-expanded="false">
+				<i data-feather="info" style="font-size: x-large;"></i><br>
+				<span class="chn">諮詢</span>
+				<span class="eng">Consultation</span>
+			</a>
+		</li>
+	</ul>
 
 
-	<div id="admin" style="display: none;">
-		<hr>
-		<div class="row">
-			<div class="col-sm-3">
-				<a href="https://getsimpleform.com/messages?api_token=415a188ac67487bb04ee6f3981ec447a" target="_blank" class="col-icon">
-					<i data-feather="message-circle" style="font-size: x-large;"></i><br>
-					<span class="chn">信息</span>
-					<span class="eng">Message</span>
+	<div id="myTabContent" class="tab-content">
+		<div class="tab-pane fade" id="design">
+			<div class="list-group">
+				
+				<a href="/design/2019/06/20/sdc-site.html" class="list-group-item">
+					<span class="chn">中国国际太阳能十项全能竞赛标准场地</span>
+					<span class="eng">Standardized Site of Solar Decathlon China</span>
+					<div class="gray slim small">
+						<i data-feather="calendar"></i> 20 Jun 2019
+						<i class="pull-right">
+							#Planning
+						</i>
+					</div>
 				</a>
+				
 			</div>
+		</div>
 
-			<div class="col-sm-3">
-				<a href="http://statcounter.com" target="_blank" class="col-icon">
-					<i data-feather="bar-chart-2" style="font-size: x-large;"></i><br>
-					<span class="chn">統計</span>
-					<span class="eng">Stats</span>
+		<div class="tab-pane fade" id="development">
+			<div class="list-group">
+				
+				<a href="/development/2020/01/29/sdc-web.html" class="list-group-item">
+					<span class="chn">中国国际太阳能十项全能竞赛官方网站</span>
+					<span class="eng">Official Website of Solar Decathlon China</span>
+					<div class="gray slim small">
+						<i data-feather="calendar"></i> 29 Jan 2020
+						<i class="pull-right">
+							#Web
+						</i>
+					</div>
 				</a>
+				
+			</div>
+		</div>
+
+		<div class="tab-pane fade" id="consultation">
+			<div class="list-group">
+				
 			</div>
 		</div>
 	</div>
 </section>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+var hashtag = window.location.search;
+var tag2 = RegExp(/development/);
+var tag3 = RegExp(/consultation/);
+if(tag2.exec(hashtag)){
+	document.getElementById('tab-development').className += "active";
+	document.getElementById('development').className += " active in";
+} else if(tag3.exec(hashtag)){
+	document.getElementById('tab-consultation').className += "active";
+	document.getElementById('consultation').className += " active in";
+} else {
+	document.getElementById('tab-design').className += "active";
+	document.getElementById('design').className += " active in";
+}
+</script>
+
+
 	</div>
 
 	<footer>
@@ -142,7 +177,7 @@ window.history.back(-1);
 			<span class="glyphicon glyphicon-th-list"></span>
 		</a>
 
-		<a class="btm-icon active" href="/settings.html">
+		<a class="btm-icon " href="/settings.html">
 			<span class="glyphicon glyphicon-cog"></span>
 		</a>
 
