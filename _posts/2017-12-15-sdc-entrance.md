@@ -9,10 +9,11 @@ tags: SDC
 
 <img src="{{ site.baseurl }}/assets/img/sdc-entrance/s1.png" class="post-img">
 
-
-
+2018中国国际太阳能十项全能竞赛场地位于山东省德州市，赛场坐北朝南，占地约240亩。主入口设计灵感源于槽式抛物面太阳能集热器，造型为开口向上的抛物线。抛物线弧度根据德州市的地理坐标确定，抛物线方程为x<sup>2</sup> = 116 (y - 8)，焦点为(0, 37)，完美契合德州经纬度(116E, 37N)。根据抛物线的光学性质，平行于对称轴的光线经抛物线反射后汇聚于焦点，寓意全球精英智慧齐聚德州，共襄盛举。
 
 <!-- more -->
+
+东、西入口的造型取自英文字母SD，代表Solar Decathlon，点明园区主题，展现大赛标识。三段抛物线构筑出整体框架曲线，造型简洁灵动，呼应主入口设计元素。
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 	<!-- Indicators -->

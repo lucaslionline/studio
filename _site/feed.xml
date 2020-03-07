@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-07T21:32:36+08:00</updated><id>http://localhost:4000/</id><title type="html">LucaStudio</title><entry><title type="html">中国国际太阳能十项全能竞赛官方网站开发</title><link href="http://localhost:4000/development/2020/01/29/sdc-web.html" rel="alternate" type="text/html" title="中国国际太阳能十项全能竞赛官方网站开发" /><published>2020-01-29T00:00:00+08:00</published><updated>2020-01-29T00:00:00+08:00</updated><id>http://localhost:4000/development/2020/01/29/sdc-web</id><content type="html" xml:base="http://localhost:4000/development/2020/01/29/sdc-web.html">&lt;p&gt;&lt;img src=&quot;/assets/img/sdc-web/cover.png&quot; class=&quot;post-img&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-07T22:05:11+08:00</updated><id>http://localhost:4000/</id><title type="html">LucaStudio</title><entry><title type="html">中国国际太阳能十项全能竞赛官方网站开发</title><link href="http://localhost:4000/development/2020/01/29/sdc-web.html" rel="alternate" type="text/html" title="中国国际太阳能十项全能竞赛官方网站开发" /><published>2020-01-29T00:00:00+08:00</published><updated>2020-01-29T00:00:00+08:00</updated><id>http://localhost:4000/development/2020/01/29/sdc-web</id><content type="html" xml:base="http://localhost:4000/development/2020/01/29/sdc-web.html">&lt;p&gt;&lt;img src=&quot;/assets/img/sdc-web/cover.png&quot; class=&quot;post-img&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;中国国际太阳能十项全能竞赛官方网站为大赛提供中英文信息发布及品牌宣传，是大赛组委会与公众进行资讯交流、成果展示、资源共享的官方渠道和平台。&lt;/p&gt;
 
@@ -266,7 +266,11 @@
 	&lt;/div&gt;
 &lt;/div&gt;</content><author><name></name></author><category term="SDC" /><summary type="html"></summary></entry><entry><title type="html">2018中国国际太阳能十项全能竞赛入口设计</title><link href="http://localhost:4000/design/2017/12/15/sdc-entrance.html" rel="alternate" type="text/html" title="2018中国国际太阳能十项全能竞赛入口设计" /><published>2017-12-15T00:00:00+08:00</published><updated>2017-12-15T00:00:00+08:00</updated><id>http://localhost:4000/design/2017/12/15/sdc-entrance</id><content type="html" xml:base="http://localhost:4000/design/2017/12/15/sdc-entrance.html">&lt;p&gt;&lt;img src=&quot;/assets/img/sdc-entrance/s1.png&quot; class=&quot;post-img&quot; /&gt;&lt;/p&gt;
 
+&lt;p&gt;2018中国国际太阳能十项全能竞赛场地位于山东省德州市，赛场坐北朝南，占地约240亩。主入口设计灵感源于槽式抛物面太阳能集热器，造型为开口向上的抛物线。抛物线弧度根据德州市的地理坐标确定，抛物线方程为x&lt;sup&gt;2&lt;/sup&gt; = 116 (y - 8)，焦点为(0, 37)，完美契合德州经纬度(116E, 37N)。根据抛物线的光学性质，平行于对称轴的光线经抛物线反射后汇聚于焦点，寓意全球精英智慧齐聚德州，共襄盛举。&lt;/p&gt;
+
 &lt;!-- more --&gt;
+
+&lt;p&gt;东、西入口的造型取自英文字母SD，代表Solar Decathlon，点明园区主题，展现大赛标识。三段抛物线构筑出整体框架曲线，造型简洁灵动，呼应主入口设计元素。&lt;/p&gt;
 
 &lt;div id=&quot;myCarousel&quot; class=&quot;carousel slide&quot; data-ride=&quot;carousel&quot;&gt;
 	&lt;!-- Indicators --&gt;
@@ -359,4 +363,4 @@
 			&lt;span class=&quot;sr-only&quot;&gt;Next&lt;/span&gt;
 		&lt;/a&gt;
 	&lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="SDC" /><summary type="html"></summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="SDC" /><summary type="html">2018中国国际太阳能十项全能竞赛场地位于山东省德州市，赛场坐北朝南，占地约240亩。主入口设计灵感源于槽式抛物面太阳能集热器，造型为开口向上的抛物线。抛物线弧度根据德州市的地理坐标确定，抛物线方程为x2 = 116 (y - 8)，焦点为(0, 37)，完美契合德州经纬度(116E, 37N)。根据抛物线的光学性质，平行于对称轴的光线经抛物线反射后汇聚于焦点，寓意全球精英智慧齐聚德州，共襄盛举。</summary></entry></feed>
