@@ -1,5 +1,5 @@
 {% if page.previous.url %}
-<a class="btn btn-round btn-sm" href="{{ page.previous.url }}">
+<a class="btn btn-round btn-sm" href="{{ site.baseurl }}{{ page.previous.url }}">
 	<span class="eng">PREV</span>
 	<span class="chn">上一篇</span>
 </a>
@@ -11,7 +11,7 @@
 {% endif %}
 
 {% if page.next.url %}
-<a class="btn btn-round btn-sm pull-right" href="{{ page.next.url }}">
+<a class="btn btn-round btn-sm pull-right" href="{{ site.baseurl }}{{ page.next.url }}">
 	<span class="eng">NEXT</span>
 	<span class="chn">下一篇</span>
 </a>
