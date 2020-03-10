@@ -4,7 +4,10 @@ layout: default
 
 
 <section style="margin-top: 7rem;">
-	<h2>{{ page.title }}</h2>
+	<h2>
+		<span class="chn">{{ page.title }}</span>
+		<span class="eng">{{ page.subtitle }}</span>
+	</h2>
 	<p class="slim gray" style="margin-bottom: 4rem;">
 		<i data-feather="calendar"></i>
 		{{ page.date | date_to_string }}

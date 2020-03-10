@@ -16,11 +16,10 @@ title: "Projects"
 {% for post in paginator.posts %}
 <section>
 	<h2 class="post-title">
-		{% if post.categories contains 'bookmarked' %}
-		<span class="glyphicon glyphicon-bookmark" style="color: #d9534f; font-size: 0.8em;"></span>
-		{% endif %}
-
-		<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+		<a href="{{ site.baseurl }}{{ post.url }}">
+			<span class="chn">{{ post.title }}</span>
+			<span class="eng">{{ post.subtitle }}</span>
+		</a>
 	</h2>
 
 	<p class="gray slim" style="margin-bottom: 2rem;">
