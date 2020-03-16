@@ -363,6 +363,10 @@ nav a:hover {
 	.front-profile {
 		margin-top: 5rem;
 	}
+	.front-profile2 {
+		margin: 2em 0;
+	}
+	.front-profile2:hover,
 	.front-profile:hover {
 		box-shadow: 0 0 10px white;
 	}

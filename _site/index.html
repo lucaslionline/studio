@@ -27,7 +27,7 @@
 	<div class="front-page" id="cover-menu">
 		<center>
 			<a href="javascript:;" onclick="coverSwitch()">
-				<img class="img-thumbnail front-profile" width="150px" src="/assets/img/profile1.png">
+				<img class="img-thumbnail front-profile" width="150px" src="/assets/img/profile2.png">
 			</a>
 
 			<h3 class="ltr-sp">
@@ -67,9 +67,7 @@
 					<span class="glyphicon glyphicon-stats"></span>
 					&sdot;
 
-					<a href="javascript:;" onclick="favorites()">
-						<span class="glyphicon glyphicon-star"></span>
-					</a>
+					<a href="javascript:;" onclick="favorites()"><span class="glyphicon glyphicon-time"></span></a>
 					&sdot;
 
 					<span class="glyphicon glyphicon-globe"></span>
@@ -80,37 +78,9 @@
 		</center>
 
 		<!-- Favorite Starts -->
-		<div class="favorites">
-			<p class="center bold">
-				<span class="eng">Chance Favors the Prepared Mind</span>
-				<span class="chn">機遇垂青有準備的人</span>
-			</p>
-
-
-			<a href="https://lucaslionline.github.io/lucas/" target="_blank" class="cloth-icon">
-				<i data-feather="home" style="font-size: x-large;"></i><br>
-				<span class="chn">盧卡斯</span>
-				<span class="eng">Lucas</span>
-			</a><a href="https://lucaslionline.github.io/diary/" target="_blank" class="cloth-icon">
-			<i data-feather="edit" style="font-size: x-large;"></i><br>
-			<span class="chn">日誌</span>
-			<span class="eng">Story</span>
-		</a>
-	</div>
-	<!-- Favorite Ends -->
-</div>
-
-
-
-
-<div class="front-page" id="cover-widget">
-	<a href="javascript:;" onclick="coverSwitch()">
-		<span class="cover-close"><i data-feather="x-square"></i></span>
-	</a>
-
-	<div class="col-sm-4 center">
-		<div style="margin: -1em 0;">
-			<canvas width='200' height='200' id='canvas'><canvas>
+		<div class="favorites center">
+			<div style="margin: -1em 0;">
+				<canvas width='200' height='200' id='canvas'><canvas>
 
 <script type="text/javascript" src='/assets/js/requestNextAnimationFrame.js'></script>
 
@@ -278,45 +248,83 @@ var canvas=document.getElementById('canvas'),
 	window.requestNextAnimationFrame(animate);
 	drawGrid('lightgray',10,10);
 </script>
-		</div>
+			</div>
 
-		<div class="text-uppercase widget-date ltr-sp">
-			<span>
-				<script type="text/javascript">
-				var day = new Date().getDay();
-				var week;
-				var arr_week = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
-				week = arr_week[day];
-				document.write(week);
-				</script>
-			</span><br>
-			<span class="slim" style="font-size: 300%;">
-				<script type="text/javascript">
-				document.write(new Date().getDate());
-				</script>
-			</span><br>
-			<span class="slim">
-				<script type="text/javascript">
-				var month_id = new Date().getMonth();
-				var arr_month = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-				var month = arr_month[month_id];
-				var year = new Date().getFullYear();
-				document.write(month + " " + year);
-				</script>
-			</span>
-		</div>
+			<div class="text-uppercase widget-date ltr-sp">
+				<span>
+					<script type="text/javascript">
+					var day = new Date().getDay();
+					var week;
+					var arr_week = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+					week = arr_week[day];
+					document.write(week);
+					</script>
+				</span><br>
+				<span class="slim" style="font-size: 300%;">
+					<script type="text/javascript">
+					document.write(new Date().getDate());
+					</script>
+				</span><br>
+				<span class="slim">
+					<script type="text/javascript">
+					var month_id = new Date().getMonth();
+					var arr_month = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+					var month = arr_month[month_id];
+					var year = new Date().getFullYear();
+					document.write(month + " " + year);
+					</script>
+				</span>
+			</div>
 
-		<div>
-			<strong>
-				<span class="eng">
-					<script type="text/javascript">greetingEng();</script>
-				</span>
-				<span class="chn">
-					<script type="text/javascript">greetingChn();</script>
-				</span>
-			</strong>
+			<div>
+				<strong>
+					<span class="eng">
+						<script type="text/javascript">greetingEng();</script>
+					</span>
+					<span class="chn">
+						<script type="text/javascript">greetingChn();</script>
+					</span>
+				</strong>
+			</div>
+			
 		</div>
-	</div>
+		<!-- Favorite Ends -->
+</div>
+
+
+
+
+<div class="front-page" id="cover-widget">
+	<div class="col-sm-4 center">
+			<a href="javascript:;" onclick="coverSwitch()">
+				<img class="img-thumbnail front-profile2" width="150px" src="/assets/img/profile2.png">
+			</a>
+
+
+			<p class="center bold">
+				<span class="eng">Chance Favors the Prepared Mind</span>
+				<span class="chn">機遇垂青有準備的人</span>
+			</p>
+
+			<p style="margin: 2em 0;">
+				<a class="btn btn-sm btn-round" href="https://lucaslionline.github.io/lucas/" target="_blank">
+					<span class="eng">Lucas</span>
+					<span class="chn">盧卡斯</span>
+				</a>
+				&nbsp;
+				<a class="btn btn-sm btn-round" href="https://lucaslionline.github.io/story/" target="_blank">
+					<span class="eng">Story</span>
+					<span class="chn">日誌</span>
+				</a>
+			</p>
+
+			<div class="center" style="margin-top: 1em;">
+				<a href="https://www.facebook.com/lucaslionline" target="_blank"><i data-feather="facebook"></i></a> &sdot;
+<a href="https://github.com/lucaslionline" target="_blank"><i data-feather="github"></i></a> &sdot;
+<a href="https://linkedin.com/lucaslionline" target="_blank"><i data-feather="linkedin"></i></a> &sdot;
+<a href="https://www.instagram.com/lucaslionline/" target="_blank"><i data-feather="instagram"></i></a>
+			</div>
+		</div>
 
 	<div class="col-sm-8">
 
