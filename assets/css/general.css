@@ -1,0 +1,653 @@
+/*--------------------------------------------------------------
+1.0 Normalize
+--------------------------------------------------------------*/
+body {
+	background: #f8f9fa;
+}
+
+a {
+	color: #31708f;
+}
+a:hover {
+	color: gray;
+}
+
+blockquote {
+	color: gray;
+	border-left: 5px solid #31708f;
+	padding: 0.5rem 2rem;
+	margin: 1em 0;
+	background: #eee;
+}
+
+
+/* 鼠标指针 */
+.cursor {
+	cursor: pointer;
+}
+
+/*--------------------------------------------------------------
+2.0 Languages
+--------------------------------------------------------------*/
+.chn {
+	display: none;
+}
+
+
+/*--------------------------------------------------------------
+3.0 Alignments
+--------------------------------------------------------------*/
+.center {
+	text-align: center;
+}
+
+
+/*--------------------------------------------------------------
+4.0 Clearings
+--------------------------------------------------------------*/
+.clearance {
+	margin-bottom: 50px;
+}
+
+.no-padding {
+	padding: 0;
+}
+.no-margin {
+	margin: 0;
+}
+.margin-btm-2 {
+	margin-bottom: 2em;
+}
+
+.trim {
+	display: block;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+
+/*--------------------------------------------------------------
+5.0 Fonts
+--------------------------------------------------------------*/
+/* 字体大小 */
+.x-small {
+	font-size: 80%;
+}
+
+/* 字体粗细 */
+.slim {
+	font-weight: 200;
+}
+.bold {
+	font-weight: bold;
+}
+
+/* 字体间距*/
+.ltr-sp {
+	letter-spacing: 0.1em;
+}
+
+/* 字体颜色 */
+.gray {
+	color: gray;
+}
+.white {
+	color: white;
+}
+.active {
+	color: gray;
+}
+
+/*--------------------------------------------------------------
+6.0 Forms
+--------------------------------------------------------------*/
+
+
+
+
+/*--------------------------------------------------------------
+7.0 Formatting
+--------------------------------------------------------------*/
+/* 自适应 */
+@media (max-width: 768px) {
+	.laptop {
+		display: none;
+	}
+}
+@media (min-width: 768px) {
+	.mobile {
+		display: none;
+	}
+}
+
+
+
+
+/*--------------------------------------------------------------
+8.0 Lists
+--------------------------------------------------------------*/
+/* 音乐播放器 */
+#playlist a.active {
+	color: gray;
+	background: none;
+	border: 1px solid #ddd;
+	background-color: #f8f9fa;
+}
+
+/* 关于 */
+ul.list {
+	margin: 0;
+	padding: 0;
+}
+ul.list li {
+	margin-bottom: 1rem;
+	list-style: none;
+}
+
+
+/*--------------------------------------------------------------
+9.0 Tables
+--------------------------------------------------------------*/
+
+
+
+
+/*--------------------------------------------------------------
+10.0 Links
+--------------------------------------------------------------*/
+.no-link a:hover {
+	text-decoration: none;
+}
+.as-link {
+	color: #31708f;
+}
+.as-link:hover {
+	cursor: pointer;
+	color: gray;
+}
+
+/* 按钮 */
+.btn-round {
+	border-radius: 1em;
+	border: 1px solid #31708f;
+	color: #31708f;
+	line-height: 2em;
+	padding: 0 2em;
+	background: transparent;
+	text-transform: uppercase;
+}
+.btn-round:hover {
+	background: #31708f;
+	color: white;
+	box-shadow: 0 0 5px gray;
+}
+.btn-highlight {
+	background: #31708f;
+	color: white;
+}
+.btn-highlight:hover {
+	background: transparent;
+	color: #31708f;
+}
+
+
+/*--------------------------------------------------------------
+12.0 Navigation
+--------------------------------------------------------------*/
+
+
+
+
+
+
+/*--------------------------------------------------------------
+13.0 Layout
+	13.1 Header
+	--------------------------------------------------------------*/
+	header {
+		border-top: 7px solid #31708f;
+		border-bottom: 1px solid #eee;
+		box-shadow: 0 0 10px #eee;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		background: white;
+		height: 86px;
+		z-index: 100;
+	}
+
+
+
+/*--------------------------------------------------------------  
+	13.2 Front Page
+	--------------------------------------------------------------*/
+	/* 首页 */
+	.front-page {
+		background: linear-gradient(to bottom, #31708f, white);
+		position: absolute;
+		width: 750px;
+		height: 420px;
+		top: 50%;
+		left: 50%;
+		margin-top: -210px;
+		margin-left: -375px;
+		border-radius: 4px;
+		border: 1px solid #ccc;
+		box-shadow: 0 0 20px #aaa;
+	}
+	.front-profile {
+		margin-top: 5rem;
+	}
+	.front-profile2 {
+		margin: 2em 0;
+	}
+	.front-profile2:hover,
+	.front-profile:hover {
+		box-shadow: 0 0 10px white;
+	}
+
+	/* 首页切换 */
+	#cover-menu {
+	}
+	#cover-widget {
+		display: none;
+		padding: 2em 1em;
+	}
+
+	/* 首頁收藏 */
+	.favorites {
+		position: absolute;
+		height: calc(370px - 2px);
+		width: 250px;
+		top: 0;
+		right: 0;
+		background: rgba(248,249,250,0.5);
+		border-top-right-radius: 4px;
+		border-left: 1px solid #ddd;
+		padding: 1em;
+		display: none;
+		z-index: 100;
+	}
+
+
+
+
+	/* 切换页小工具 */
+	.widget-date {
+		margin-bottom: 2em;
+	}
+
+	/* 切换页時間軸 */
+	.widget-timeline {
+		height: 364px;
+		overflow-y: auto;
+		position: relative;
+	}
+	.entries {
+		width: 100%;
+	}
+	.entries:before {
+		content: '';
+		position: absolute;
+		min-height: 190%;
+		top: 0px;
+		left: 50%;
+		bottom: 0px;
+		width: 2px;
+		background-color: white;
+		transform: translateX(-50%);
+	}
+	.entry {
+		width: calc(50% - 20px);
+		float: left; 
+		padding: 0.5em 1em;
+		clear: both;
+		text-align: right;
+		background: rgba(255,255,255,0.5);
+		border-radius: 4px;
+		box-shadow: 0 0 10px #ccc;
+	}
+	.entry:first-child {
+		margin-top: 1em;
+	}
+	.entry:last-child {
+		margin-bottom: 1em;
+	}
+	.entry-title {
+		position: relative;
+		color: white;
+	}
+	.entry-title:before {
+		content: '';
+		position: absolute;
+		width: 12px;
+		height: 12px;
+		border: 2px solid white;
+		background-color: #31708f;
+		border-radius: 100%;
+		top: 50%;
+		transform:translateY(-50%);
+		right: -40px;
+	}
+	.entry:nth-child(2n) {
+		text-align: left;
+		float: right;
+	}
+	.entry:nth-child(2n) .entry-title:before {
+		left: -40px;
+	}
+
+
+
+
+
+
+/*--------------------------------------------------------------
+	13.3 Regular Content
+	--------------------------------------------------------------*/
+	section {
+		margin: 5rem 0;
+		padding: 2em;
+		border-radius: 4px;
+		border: 1px solid #ccc;
+		background: white;
+		box-shadow: 0 0 10px #ccc;
+	}
+
+/*--------------------------------------------------------------
+	13.4 Posts
+	--------------------------------------------------------------*/
+	/* 文章 */
+	.post-title a:hover {
+		text-decoration: none;
+	}
+	.post-img {
+		margin-left: -2em;
+		margin-right: -2em;
+		width: calc(100% + 4em);
+	}
+	
+	/* 脚注 */
+	.footnotes {
+		margin-top: 4rem;
+	}
+	.footnotes:before {
+		content: "References";
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	.footnotes ol {
+		font-weight: 300;
+		margin-top: 1em;
+	}
+	.footnotes p {
+		margin: 0;
+	}
+
+
+/*--------------------------------------------------------------
+	13.5 Pages
+	--------------------------------------------------------------*/
+	/* 页眉页脚 */
+	.page-title {
+		margin: 7rem 0;
+	}
+	.page-nav {
+		margin: 7rem 0;
+	}
+
+
+
+/*--------------------------------------------------------------
+	13.6 Footer
+	--------------------------------------------------------------*/
+	footer {
+		border-top: 1px solid #eee;
+		border-bottom: 4px solid #31708f;
+		box-shadow: 0 0 10px #eee;
+		padding: 0;
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		background: white;
+		z-index: 100;
+		/*height: 50px;
+		text-transform: uppercase;*/
+	}
+
+	/* 开始菜单 */
+	.start {
+		display: none;
+		position: absolute;
+		bottom: 50px;
+		background: rgba(248,249,250,0.9);
+		border-radius: 4px;
+		border: 1px solid #ccc;
+		box-shadow: 0 0 10px #ccc;
+		height: 400px;
+		max-width: 100%;
+	}
+	.start-left {
+		display: inline-block;
+		width: 45px;
+		height: 100%;
+		vertical-align: top;
+		text-align: center;
+		position: relative;
+	}
+	.start-left-btm {
+		position: absolute;
+		bottom: 0;
+	}
+	.start-right {
+		display: inline-block;
+		width: 350px;
+		height: 100%;
+		padding: 2em;
+		vertical-align: top;
+		overflow-y: auto;
+	}
+
+	/* 开始菜单模块 */
+	.cloth {
+		background: rgba(255,255,255,0.8);
+		padding: 1em;
+		border-radius: 4px;
+		box-shadow: 0 0 10px #ccc;
+		margin: 1em 0;
+	}
+	.cloth-icon {
+		display: inline-block;
+		font-size: 85%;
+		width: 25%;
+		text-align: center;
+		padding: 0.5em;
+		border-radius: 4px;
+	}
+	.cloth-icon:hover {
+		background: #f5f5f5;
+		text-decoration: none;
+	}
+
+	/* 设置导航图标 */
+	.col-icon {
+		font-size: 85%;
+		width: 100%;
+		text-align: center;
+		padding: 1em;
+		border-radius: 4px;
+		display: block;
+	}
+	.col-icon:hover {
+		background: #f5f5f5;
+		text-decoration: none;
+	}
+
+	/* 页脚导航图标 */
+	.btm-icon {
+		display: inline-block;
+		line-height: 45px;
+		font-size: larger;
+		width: 45px;
+		text-align: center;
+	}
+	.btm-icon:hover {
+		background: #f5f5f5;
+	}
+	.btm-icon.active {
+		background: #f8f9fa;
+	}
+
+	/* 页脚右栏 */
+	.footer-right {
+		float: right;
+		line-height: 45px;
+	}
+
+
+/*--------------------------------------------------------------
+14.0 Comments
+--------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------
+16.0 Images
+--------------------------------------------------------------*/
+/* 开始菜单头像 */
+.start-profile {
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	box-shadow: 0 0 10px #ccc;
+	margin: 1.5em 0 1em 1em;
+}
+.start-profile:hover{
+	box-shadow: 0 0 10px #31708f;
+}
+
+/* 关于封面 */
+.about-cover {
+	margin: 5rem 0;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	background: white;
+	box-shadow: 0 0 10px #ccc;
+}
+.cover-img {
+	height: 250px;
+	width: 100%;
+	position: relative;
+}
+.cover-profile {
+	position: absolute;
+	left: 2em;
+	bottom: -3em;
+}
+
+/* 首页关闭按钮 */
+.btn-close {
+	font-size: 20px;
+	color: white;
+	opacity: 0.6;
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+}
+.btn-close:hover {
+	opacity: 0.9;
+}
+
+/* 关于分栏自适应 */
+@media (min-width: 768px) {
+	.left-col {
+		width: 150px;
+	}
+	.right-col {
+		padding-left: 2em;
+	}
+	.social-2 {
+		display: none;
+	}
+}
+@media (max-width: 768px) {
+	.left-col {
+		display: none;
+	}
+	.right-col {
+		padding-top: 2em;
+	}
+}
+
+
+
+/*--------------------------------------------------------------
+15.0 Widgets
+--------------------------------------------------------------*/
+/* 轮播图 */
+.carousel {
+	/*height: 480px;*/
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	box-shadow: 0 0 10px #ccc;
+	/*margin: 0 -2em;*/
+}
+.carousel-caption {
+	z-index: 10;
+}
+.carousel .item,
+.carousel .item img {
+	/*height: 480px;*/
+	border-radius: 4px;
+}
+
+
+/*--------------------------------------------------------------
+18.0 SVGs Fallbacks
+--------------------------------------------------------------*/
+/* 图标 */
+svg {
+	width: 1em;
+	height: 1em;
+}
+/*path {
+	fill: #333333;
+}
+a path {
+	fill: #31708f;
+}
+a:hover path {
+	fill: gray;
+	}*/
+
+
+/*--------------------------------------------------------------
+17.0 Customizer
+--------------------------------------------------------------*/
+/* 浮动图层 */
+.overlay-bg {
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	z-index: 1001;
+	opacity: 0.6;
+	-moz-opacity: 0.6;
+	filter: alpha(opacity=60);
+}
+.overlay-content {
+	display: none;
+	width: 100%;
+	padding: 5rem 0;
+	border-top: 7px solid #31708f;
+	height: 420px;
+	top: 50%;
+	margin-top: -210px;
+	position: absolute;
+	z-index: 1002;
+	overflow: auto;
+	background-color: white;
+}
