@@ -375,7 +375,7 @@ nav a:hover {
 	}
 	#cover-widget {
 		display: none;
-		padding: 2em;
+		padding: 2em 1em;
 	}
 
 	.widget-date {
