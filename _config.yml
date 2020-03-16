@@ -1,5 +1,5 @@
 title: LucaStudio
-profile: profile2
+avatar: profile2
 baseurl: 
 markdown: kramdown
 plugins: [jekyll-paginate]
