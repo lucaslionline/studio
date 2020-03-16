@@ -125,6 +125,10 @@ function coverSwitch(){
 	$("#cover-widget").toggle("slow");
 }
 
+function favorites(){
+	$(".favorites").animate({width: 'toggle'});
+}
+
 
 
 // Toggle

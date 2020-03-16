@@ -31,10 +31,10 @@
 			</a>
 
 			<h3 class="ltr-sp">
-				<span class="eng">Luca<span class="theme">S</span>tudio</span>
+				<span class="eng">LUCA<span class="theme">S</span>TUDIO</span>
 				<span class="chn">盧卡斯工作室</span>
 			</h3>
-			<p class="slim" id="divTyping">_</p>
+			<p class="slim text-uppercase" id="divTyping">_</p>
 
 			<p style="margin: 2em 0;">
 				<a class="btn btn-sm btn-round" href="/services.html">
@@ -67,24 +67,50 @@
 					<span class="glyphicon glyphicon-stats"></span>
 					&sdot;
 
+					<a href="javascript:;" onclick="favorites()">
+						<span class="glyphicon glyphicon-star"></span>
+					</a>
+					&sdot;
+
 					<span class="glyphicon glyphicon-globe"></span>
 					<span class="eng"><a href="javascript:;" onclick="abc()">中文</a></span>
 					<span class="chn"><a href="javascript:;" onclick="abc()">ENG</a></span>
 				</p>
 			</div>
 		</center>
-	</div>
+
+		<!-- Favorite Starts -->
+		<div class="favorites">
+			<p class="center bold">
+				<span class="eng">Chance Favors the Prepared Mind</span>
+				<span class="chn">機遇垂青有準備的人</span>
+			</p>
 
 
-
-	<div class="front-page" id="cover-widget">
-		<a href="javascript:;" onclick="coverSwitch()">
-			<span class="cover-close"><i data-feather="x-square"></i></span>
+			<a href="https://lucaslionline.github.io/lucas/" target="_blank" class="cloth-icon">
+				<i data-feather="home" style="font-size: x-large;"></i><br>
+				<span class="chn">盧卡斯</span>
+				<span class="eng">Lucas</span>
+			</a><a href="https://lucaslionline.github.io/diary/" target="_blank" class="cloth-icon">
+			<i data-feather="edit" style="font-size: x-large;"></i><br>
+			<span class="chn">日誌</span>
+			<span class="eng">Story</span>
 		</a>
+	</div>
+	<!-- Favorite Ends -->
+</div>
 
-		<div class="col-sm-4 center">
-			<div style="margin: -1em 0;">
-				<canvas width='200' height='200' id='canvas'><canvas>
+
+
+
+<div class="front-page" id="cover-widget">
+	<a href="javascript:;" onclick="coverSwitch()">
+		<span class="cover-close"><i data-feather="x-square"></i></span>
+	</a>
+
+	<div class="col-sm-4 center">
+		<div style="margin: -1em 0;">
+			<canvas width='200' height='200' id='canvas'><canvas>
 
 <script type="text/javascript" src='/assets/js/requestNextAnimationFrame.js'></script>
 
@@ -252,50 +278,50 @@ var canvas=document.getElementById('canvas'),
 	window.requestNextAnimationFrame(animate);
 	drawGrid('lightgray',10,10);
 </script>
-			</div>
-
-			<div class="text-uppercase widget-date ltr-sp">
-				<span>
-					<script type="text/javascript">
-					var day = new Date().getDay();
-					var week;
-					var arr_week = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
-					week = arr_week[day];
-					document.write(week);
-					</script>
-				</span><br>
-				<span class="slim" style="font-size: 300%;">
-					<script type="text/javascript">
-					document.write(new Date().getDate());
-					</script>
-				</span><br>
-				<span class="slim">
-					<script type="text/javascript">
-					var month_id = new Date().getMonth();
-					var arr_month = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-					var month = arr_month[month_id];
-					var year = new Date().getFullYear();
-					document.write(month + " " + year);
-					</script>
-				</span>
-			</div>
-
-			<div>
-				<strong>
-					<span class="eng">
-						<script type="text/javascript">greetingEng();</script>
-					</span>
-					<span class="chn">
-						<script type="text/javascript">greetingChn();</script>
-					</span>
-				</strong>
-			</div>
 		</div>
 
-		<div class="col-sm-8">
-			
+		<div class="text-uppercase widget-date ltr-sp">
+			<span>
+				<script type="text/javascript">
+				var day = new Date().getDay();
+				var week;
+				var arr_week = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+				week = arr_week[day];
+				document.write(week);
+				</script>
+			</span><br>
+			<span class="slim" style="font-size: 300%;">
+				<script type="text/javascript">
+				document.write(new Date().getDate());
+				</script>
+			</span><br>
+			<span class="slim">
+				<script type="text/javascript">
+				var month_id = new Date().getMonth();
+				var arr_month = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+				var month = arr_month[month_id];
+				var year = new Date().getFullYear();
+				document.write(month + " " + year);
+				</script>
+			</span>
+		</div>
+
+		<div>
+			<strong>
+				<span class="eng">
+					<script type="text/javascript">greetingEng();</script>
+				</span>
+				<span class="chn">
+					<script type="text/javascript">greetingChn();</script>
+				</span>
+			</strong>
 		</div>
 	</div>
+
+	<div class="col-sm-8">
+
+	</div>
+</div>
 </body>
 </html>
 
